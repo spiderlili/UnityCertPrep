@@ -1,0 +1,44 @@
+List of Attributes
+
+by tagging an var with an attribute: define it with different properties and special behaviours 
+[HideInInspector]
+
+remain public and accesible to other scripts but hidden in the inspector in case a designer isn't supposed to change it
+
+[Range(0, 100)] force a slider bar for the player health so can't go too far with the number
+
+AddComponentMenu
+AssemblyIsEditorAssembly
+BeforeRenderOrderAttribute
+ColorUsageAttribute
+ContextMenu
+ContextMenuItemAttribute
+CreateAssetMenuAttribute
+CustomGridBrushAttribute
+DelayedAttribute
+DisallowMultipleComponent
+ExcludeFromObjectFactoryAttribute
+ExcludeFromPresetAttribute
+ExecuteInEditMode
+GUITargetAttribute
+HeaderAttribute
+HelpURLAttribute
+HideInInspector
+ImageEffectAfterScale
+ImageEffectAllowedInSceneView
+ImageEffectOpaque
+ImageEffectTransformsToLDR
+MultilineAttribute
+PreferBinarySerialization
+PropertyAttribute
+RangeAttribute
+RequireComponent
+RPC
+RuntimeInitializeOnLoadMethodAttribute
+SelectionBaseAttribute
+SerializeField
+SharedBetweenAnimatorsAttribute
+SpaceAttribute
+TextAreaAttribute
+TooltipAttribute
+UnityAPICompatibilityVersionAttribute
