@@ -16,14 +16,17 @@ public class EnumScript : MonoBehaviour {
     //need to have the same access type as enum
     public LevelOfDifficulty levelOfDifficulty = LevelOfDifficulty.easy;
 
-	void Start () {
+    void Start()
+    {
         levelOfDifficulty = LevelOfDifficulty.medium;
         Debug.Log("starting level of difficulty: " + levelOfDifficulty);
-        Direction myDirection; 
+        Direction myDirection;
         myDirection = Direction.North;
+    }
 
-        //enums can be passed into and returned from functions
-        Direction ReverseDirection(Direction dir) {
+        //enums can be passed into and returned from functions: return type is direction
+        Direction ReverseDirection(Direction dir)
+        {
             if (dir == Direction.North)
                 dir = Direction.South;
             else if (dir == Direction.South)
@@ -32,12 +35,8 @@ public class EnumScript : MonoBehaviour {
                 dir = Direction.West;
             else if (dir == Direction.West)
                 dir = Direction.East;
+
             return dir;
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-}
