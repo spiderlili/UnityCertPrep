@@ -1,14 +1,5 @@
 # UnityCertPrep
 
-## Performance Optimizations and Target Platforms
-• Implement AssetBundle download and placement in game levels<br/>
-• Design and modify input and controller schemas for different platforms<br/>
-and/or virtual reality (VR)<br/>
-• Analyze GameObjects and scenes for runtime and storage optimization<br/>
-per platform specification<br/>
-• Optimize occlusion culling throughout scenes<br/>
-• Debug and test game levels during runtime<br/>
-
 ## Topics
 • Properties<br/>
 • Ternary Operator<br/>
@@ -28,3 +19,37 @@ per platform specification<br/>
 • Delegates<br/>
 • Attributes<br/>
 • Events<br/>
+
+## Prototyping (Core Gameplay for Rapid Iteration)
+• Core gameplay prototyping<br/>
+• Conflicts and solutions during prototype stage<br/>
+
+## Level Design Programming
+• Physics configurations<br/>
+• Raycasting<br/>
+• Script-spawned prefabs during runtime<br/>
+• Level logic and behaviors<br/>
+• Population of levels with Particle Systems and effects<br/>
+• Platform optimizations<br/>
+• Scene loading and unloading<br/>
+• Methods to display cinematics<br/>
+
+## NPC Design Programming
+• NPC logic and behavior<br/>
+• Navigation and pathfinding<br/>
+• NPC spawning and placement<br/>
+
+## User Interface Implementation
+• UI coordinate systems and UI scripting<br/>
+
+## Performance Optimization and Target Platforms
+• Rendering optimization<br/>
+• Asset Bundle downloading and configuration<br/>
+• Gameplay debugging<br/>
+• Platform differences and impact on gameplay<br/>
+
+## Unity Services Implementation
+• Unity Ads<br/>
+• Unity In-App Purchasing<br/>
+• Unity Analytics<br/>
+• Unity Cloud Build<br/>
