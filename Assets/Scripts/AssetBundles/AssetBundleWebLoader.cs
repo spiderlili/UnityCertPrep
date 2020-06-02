@@ -28,3 +28,19 @@ public class AssetBundleWebLoader : MonoBehaviour
         }
     }
 }
+
+/*
+//deprecated code for older versions:
+        using (WWW web = new WWW(bundleUrl))
+        {
+            yield return web;
+            AssetBundle remoteAssetBundle = web.assetBundle;
+            if(remoteAssetBundle == null)
+            {
+                Debug.LogError("Failed to download AssetBundle");
+                yield break;
+            }
+            Instantiate(remoteAssetBundle.LoadAsset(assetName));
+            bundle.Unload(false);
+        }
+*/
