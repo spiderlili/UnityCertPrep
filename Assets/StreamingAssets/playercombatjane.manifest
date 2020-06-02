@@ -1,0 +1,84 @@
+ManifestFileVersion: 0
+CRC: 4251781619
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 18f60746cfce4b4422fd6b34d9343722
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2fdd384854108712663e29428a6008ed
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a8388ca91402043bca401bfa0ef35eb4, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Shoes_Normal.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane@idle.fbx
+- Assets/Scripts/AssetBundles/CombatJane/Materials/CombatJane_Bottom_Diffuse.mat
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Top_Opacity.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Eyewear_Gloss.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Shoes_Specular.png
+- Assets/Scripts/AssetBundles/CombatJane/Materials/CombatJane_Shoes_Diffuse.mat
+- Assets/Scripts/AssetBundles/CombatJane/Materials/CombatJane_Body_Diffuse.mat
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Eyewear_Diffuse.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Eyewear_Opacity.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Shoes_Gloss.png
+- Assets/Scripts/AssetBundles/CombatJane/Materials/CombatJane_Eyewear_Diffuse.mat
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbx
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Top_Gloss.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Eyewear_Normal.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.prefab
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Body_Opacity.png
+- Assets/Scripts/AssetBundles/CombatJane/Jane.controller
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Glove_Gloss.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Top_Specular.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Bottom_Diffuse.png
+- Assets/Scripts/AssetBundles/CombatJane/Materials/CombatJane_Top_Diffuse.mat
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Top_Diffuse.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Bottom_Specular.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Bottom_Normal.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Glove_Opacity.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Eyewear_Specular.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Bottom_Gloss.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Body_Specular.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Body_Gloss.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Bottom_Opacity.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Shoes_Opacity.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Body_Normal.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane@running_inPlace.fbx
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Body_Diffuse.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Top_Normal.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Glove_Normal.png
+- Assets/Scripts/AssetBundles/CombatJane/Materials/CombatJane_Glove_Diffuse.mat
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Glove_Specular.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Glove_Diffuse.png
+- Assets/Scripts/AssetBundles/CombatJane/CombatJane.fbm/CombatJane_Shoes_Diffuse.png
+Dependencies: []
