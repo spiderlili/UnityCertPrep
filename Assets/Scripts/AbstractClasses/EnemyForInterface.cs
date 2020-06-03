@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //inherit multiple interfaces - polymorphism
-public class EnemyForInterface : MonoBehaviour, IDamageable, IShootable
+public class EnemyForInterface : MonoBehaviour, IShootable, IDamageable
 {
     public int Health { get; set; }
 
