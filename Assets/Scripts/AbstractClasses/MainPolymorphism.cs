@@ -14,7 +14,15 @@ public class MainPolymorphism : MonoBehaviour
 
             if (Physics.Raycast(rayOrigin, out hitInfo))
             {
-                //check if something hit, if so apply damage
+                //check to see if any obj hit implements IDamageable - clean code to avoid having to understand what is hit
+                IDamageable obj = hitInfo.collider.GetComponent<IDamageable>();
+                if(obj != null)
+                {
+                    obj.Damage(500);
+                }
+
+                //check if something hit, if so apply damage - gets tedious if there are lots of different name types
+                /*
                 if(hitInfo.collider.name == "Player")
                 {
                     hitInfo.collider.GetComponent<PlayerPolymorphism>().Damage(100);
@@ -22,7 +30,7 @@ public class MainPolymorphism : MonoBehaviour
                 else if (hitInfo.collider.name == "Enemy")
                 {
                     hitInfo.collider.GetComponent<EnemyPolymorphism>().Damage(200);
-                }
+                }*/
             }
         }
     }
