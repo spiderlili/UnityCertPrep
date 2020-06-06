@@ -7,13 +7,7 @@ public class SphereEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        EventMain.onClick += Fall;
     }
 
     public void Fall()
