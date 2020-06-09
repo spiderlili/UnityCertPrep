@@ -12,7 +12,9 @@ public class StringLengthFunctionDelegate : MonoBehaviour
     void Start()
     {
         //using a return type delegate: just like actions but with func
-        strLength = GetCharacters; //subscribe method to it - signature string as a parameter and return type int match
+        //strLength = GetCharacters; //subscribe method to it - signature string as a parameter and return type int match
+        //lambda example which is identical to the same line above:
+        strLength = (name) => name.Length;
         int lengthOfString = strLength("Jon"); 
         Debug.Log("Character Count: " + lengthOfString);
 
@@ -25,8 +27,9 @@ public class StringLengthFunctionDelegate : MonoBehaviour
         //Debug.Log("Character Count: " + characterCount);
     }
 
-    int GetCharacters(string name) //must match delegate method signature
+    /* not needed if using lambda 
+    int GetCharacters(string name) //must match function delegate method signature
     {
         return name.Length;
-    }
+    } */
 }
