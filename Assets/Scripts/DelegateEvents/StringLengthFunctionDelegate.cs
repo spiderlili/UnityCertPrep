@@ -15,7 +15,7 @@ public class StringLengthFunctionDelegate : MonoBehaviour
         //strLength = GetCharacters; //subscribe method to it - signature string as a parameter and return type int match
         //lambda example which is identical to the same line above:
         strLength = (name) => name.Length;
-        int lengthOfString = strLength("Jon"); 
+        int lengthOfString = strLength("Jon"); //"Jon" will be stored in the name parameter
         Debug.Log("Character Count: " + lengthOfString);
 
         //traditional delegate method: create delegate instance, assign delegate charStrLength to that method
