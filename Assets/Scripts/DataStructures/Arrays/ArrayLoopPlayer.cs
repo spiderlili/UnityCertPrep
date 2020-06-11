@@ -18,6 +18,21 @@ public class ArrayLoopPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            foreach (var item in itemName) //universal data type
+            {
+                Debug.Log(item); //iterate through the array and print off everything
+                if(item == "Dagger")//Only print out Dagger if it exists
+                {
+                    Debug.Log("Dagger exsits");
+                    Debug.Log(item);
+                }                   
+            }
+
+            foreach(var itemid in itemID) //universal data type
+            {
+                Debug.Log(itemid);
+            }
+            /*
             for(int i = 0; i < itemName.Length; i++)
             {
                 if(itemName[i] == "Dagger")
@@ -26,7 +41,7 @@ public class ArrayLoopPlayer : MonoBehaviour
                     Debug.Log("Dagger item ID: " + itemID[i]);
                 }
                 //Debug.Log(itemName[i]);
-            }
+            }*/
         }    
     }
 }
