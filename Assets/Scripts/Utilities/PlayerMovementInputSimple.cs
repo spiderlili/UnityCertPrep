@@ -8,12 +8,6 @@ public class PlayerMovementInputSimple : MonoBehaviour
     [SerializeField] private float _verticalSpeed = 1.0f;
     [SerializeField] private bool _disableVerticalInput = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame - about 60 frames per second
     void Update()
     {
