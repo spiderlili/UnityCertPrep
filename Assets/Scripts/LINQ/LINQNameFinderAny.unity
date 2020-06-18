@@ -238,7 +238,14 @@ MonoBehaviour:
   - katy
   - alex
   - jessie
+  - katy
+  - james
+  - james
+  - matilda
   searchForName: jon
+  printAllUniqueNames: 0
+  printAllLongNames: 1
+  longNameCharactersThreshold: 5
 --- !u!4 &1641146546
 Transform:
   m_ObjectHideFlags: 0
