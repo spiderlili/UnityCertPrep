@@ -26,13 +26,13 @@ public class Item
             switch (itemType)
             {
                 case ItemType.Weapon:
-                    Debug.Log("it's a weapon");
+                    Debug.Log("it's a " + ItemType.Weapon);
                     break;
                 case ItemType.Consumable:
-                    Debug.Log("it's a consumable");
+                    Debug.Log("it's a consumable" + ItemType.Consumable);
                     break;
                 case ItemType.None:
-                    Debug.Log("it's none");
+                    Debug.Log("it's none" + ItemType.None);
                     break;
             }
         }
