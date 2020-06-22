@@ -328,6 +328,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e3d2bd25942514d97e491362fc56b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spells:
+  - name: 
+    levelRequired: 0
+    itemIdRequired: 0
+    expGained: 0
+  - name: 
+    levelRequired: 0
+    itemIdRequired: 0
+    expGained: 0
+  - name: 
+    levelRequired: 0
+    itemIdRequired: 0
+    expGained: 0
+  level: 1
+  exp: 0
 --- !u!65 &1927516336
 BoxCollider:
   m_ObjectHideFlags: 0
