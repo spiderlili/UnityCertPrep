@@ -9,6 +9,7 @@ namespace Singleton {
         void Start()
         {
             UIManager.UIManagerInstance.UpdateScore(40);
+            SpawnManager.SpawnManagerInstance.StartSpawning();
         }
     }
 }
