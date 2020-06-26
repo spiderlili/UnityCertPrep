@@ -8,8 +8,15 @@ namespace Singleton {
     // Start is called before the first frame update
         void Start()
         {
-            UIManager.UIManagerInstance.UpdateScore(40);
             SpawnManager.SpawnManagerInstance.StartSpawning();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                UIManager.UIManagerInstance.UpdateScore(40); 
+            }
         }
     }
 }

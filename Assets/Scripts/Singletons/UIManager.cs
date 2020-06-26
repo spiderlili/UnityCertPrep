@@ -14,7 +14,12 @@ namespace Singleton{
             {
                 if (_uiManagerInstance == null)
                 {
-                    Debug.LogError("UI Manager is null");
+                    //best practice: log error if instance does not exist
+                    //Debug.LogError("UI Manager is null");
+
+                    //alternative: lazy instantiation to create it on the fly
+                    GameObject go = new GameObject("UI Manager");
+                    go.AddComponent<UIManager>();
                 }
                 return _uiManagerInstance;
             }
