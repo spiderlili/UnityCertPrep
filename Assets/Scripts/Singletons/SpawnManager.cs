@@ -26,6 +26,12 @@ namespace Singleton {
             _spawnManagerInstance = this;
         }
 
+        private void Start()
+        {
+            Debug.Log("NPCName is:" + NPCManager.Instance.NPCName);
+            LevelManager.Instance.LoadLevel();
+        }
+
         public void StartSpawning()
         {
             Debug.Log("Spawn starterd"); //have the player call it
