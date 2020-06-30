@@ -47,4 +47,26 @@ public class PoolManager : MonoBehaviour
         }
         return _bulletPool;
     }
+
+    public GameObject RequestBullet()
+    {
+        //take bullet from a nonactive state to an active state, reassign it based on where the player needs it
+        //loop through the bullet list: check for in-active bullet, set it active and return to player for access
+        foreach(var bullet in _bulletPool)
+        {
+            if (bullet.activeInHierarchy == false) 
+            {
+                bullet.SetActive(true); //bullet is available
+                return bullet;
+            }
+        }
+
+        //if no bullets available(all acitve): generate x amount of bullets & run GenerateBulletList(x) so player isn't waiting for anything
+        //add newly generated bullets to the pool so don't have to generate it again
+        GameObject newBullet = Instantiate(_bulletPrefab);
+        newBullet.transform.parent = _bulletContainer.transform;
+        _bulletPool.Add(newBullet);
+
+        return newBullet;
+    }
 }
