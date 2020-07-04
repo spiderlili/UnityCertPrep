@@ -397,6 +397,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1085965675}
   pauseButtonText: {fileID: 1085965674}
+--- !u!114 &1085965677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085965673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25ea7528e76c8d4fafa969d6318839a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 1
+  Text: when pause button is clicked, it raises an onClick event, HUDController subscriber
+    responds by executing the code in the pauseButton method.
 --- !u!1 &1767970904
 GameObject:
   m_ObjectHideFlags: 0
