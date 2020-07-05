@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
-    public string[] shapes = { "circle", "square", "triangle", "octagon"};
+    public string[] shapes = { "circle", "square", "triangle", "octagon"}; //fixed in length
+    public string[] moreShapes = new string[4];
 
     //tedious implementation without array
     //public string nameOne = "circle";
