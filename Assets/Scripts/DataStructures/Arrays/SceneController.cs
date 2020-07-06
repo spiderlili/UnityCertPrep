@@ -13,11 +13,8 @@ public class SceneController : MonoBehaviour
     public List<string> shapesList;
     public List<Shape> gameShapesList;
 
-    //tedious implementation without array / list
-    //public string nameOne = "circle";
-    //public string nameTwo = "square";
-    //public string nameThree = "triangle";
-    //public string nameFour = "octagon";
+    //dictionary
+    public Dictionary<string, Shape> shapesDictionary;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +25,6 @@ public class SceneController : MonoBehaviour
             shapesArray[i] = shapesArray[i].ToUpper();
             Debug.Log(shapesArray[i]);
         }
-
-        Shape octagon = gameShapesList.Find(s => s.Name == "Octagon"); //takes predicate: condition to match when searching list
-        octagon.SetColor(Color.red);
 
         //list
         //shapesList = new List<string>();
@@ -44,10 +38,36 @@ public class SceneController : MonoBehaviour
             Debug.Log(shapesList[i]);
         }
 
-        //tedious implementation without array / list
-        //nameOne = nameOne.ToUpper();
-        //nameTwo = nameTwo.ToUpper();
-        //nameThree = nameThree.ToUpper();
-        //nameFour = nameFour.ToUpper();
+        Shape octagon = gameShapesList.Find(s => s.Name == "Octagon"); //takes predicate: condition to match when searching list
+        octagon.SetColor(Color.red);
+
+        //dictionary
+        shapesDictionary = new Dictionary<string, Shape>(); //instance of dictionary
+        //shapesDictionary.Add("Octagon", octagon);
+        //shapesDictionary["Octagon"].SetColor(Color.green); //reference dictionary element by its key
+
+        foreach (Shape shape in gameShapesList)
+        {
+            shapesDictionary.Add(shape.Name, shape);
+        }
+    }
+
+    //reference each item in the dictionary using a meaningful key name
+    private void SetRedByName(string shapeName)
+    {
+        shapesDictionary[shapeName].SetColor(Color.red);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SetRedByName("Square");
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            SetRedByName("Circle");
+        }
     }
 }
