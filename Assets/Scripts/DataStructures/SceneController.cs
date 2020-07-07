@@ -16,6 +16,12 @@ public class SceneController : MonoBehaviour
     //dictionary
     public Dictionary<string, Shape> shapesDictionary;
 
+    //queue & stack
+    public enum useQueueOrStack { useQueue, useStack };
+    useQueueOrStack currentSelection;
+    public Queue<Shape> shapesQueue;
+    public Stack<Shape> shapesStack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +56,21 @@ public class SceneController : MonoBehaviour
         {
             shapesDictionary.Add(shape.Name, shape);
         }
+
+        //switch between queues and stacks
+        currentSelection = useQueueOrStack.useStack;
+
+        //queue: pay attention to the order elements are added
+        shapesQueue = new Queue<Shape>();
+        shapesQueue.Enqueue(shapesDictionary["Triangle"]);
+        shapesQueue.Enqueue(shapesDictionary["Square"]);
+        shapesQueue.Enqueue(shapesDictionary["Circle"]);
+
+        //stack
+        shapesStack = new Stack<Shape>();
+        shapesStack.Push(shapesDictionary["Triangle"]);
+        shapesStack.Push(shapesDictionary["Square"]);
+        shapesStack.Push(shapesDictionary["Circle"]);
     }
 
     //reference each item in the dictionary using a meaningful key name
@@ -68,6 +89,37 @@ public class SceneController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             SetRedByName("Circle");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switch (currentSelection)
+            {
+                case useQueueOrStack.useQueue:
+                    if (shapesQueue.Count > 0)
+                    {
+                        Shape shapeToDequeue = shapesQueue.Dequeue(); //FIFO
+                        shapeToDequeue.SetColor(Color.blue);
+                    }
+                    else
+                    {
+                        Debug.Log("Queue is empty");
+                    }
+                break;
+
+                case useQueueOrStack.useStack:
+                    if (shapesStack.Count > 0)
+                    {
+                        Shape shapeToPop = shapesStack.Pop(); //LIFO
+                        shapeToPop.SetColor(Color.green);
+                    }
+                    else
+                    {
+                        Debug.Log("Stack is empty");
+                    }
+                break;
+            }
+
         }
     }
 }
