@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void TextOutputHandler(string text); //can represent any method with matching signature
+
 public class GameSceneController : MonoBehaviour
 {
     public float playerSpeed;
@@ -36,5 +38,10 @@ public class GameSceneController : MonoBehaviour
         Camera mainCamera = Camera.main;
         Vector3 screenVector = new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z);
         return mainCamera.ScreenToWorldPoint(screenVector); 
+    }
+
+    public void OutputText(string output) //matches the signature of the TextOutputHandler delegate
+    {
+        Debug.LogFormat("{0} output by GameSceneController", output);
     }
 }
