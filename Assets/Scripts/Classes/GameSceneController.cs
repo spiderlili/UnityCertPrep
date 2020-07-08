@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,11 +12,15 @@ public class GameSceneController : MonoBehaviour
     public EnemyController enemyPrefab;
     public int spawnCycleSeconds = 2;
 
+    private HUDController hudController;
+    private int totalPoints;
+
     void Start()
     {
         playerSpeed = 10;
         screenBounds = GetScreenBounds();
         StartCoroutine(SpawnEnemies());
+        hudController = FindObjectOfType<HUDController>();
     }
 
     //spawn enemies at the top of the screen every few seconds
@@ -25,11 +30,21 @@ public class GameSceneController : MonoBehaviour
         while (true)
         {
             //creates a random horiztonal position within the bounds at the top of the screen, stores in spawnPosition 
-            float horizontalPosition = Random.Range(-screenBounds.x, screenBounds.x);
+            float horizontalPosition = UnityEngine.Random.Range(-screenBounds.x, screenBounds.x);
             Vector2 spawnPosition = new Vector2(horizontalPosition, screenBounds.y);
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+            //create an instance of enemy to work with, subscribe to its enemyEscaped event
+            EnemyController enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            enemy.EnemyEscaped += EnemyAtBottom;
+            enemy.EnemyKilled += EnemyKilled;
             yield return wait;
         }
+    }
+
+    private void EnemyKilled(int pointValue)
+    {
+        totalPoints += pointValue;
+        hudController.scoreText.text = totalPoints.ToString(); 
     }
 
     //returns the border of the screen in world space
@@ -43,5 +58,11 @@ public class GameSceneController : MonoBehaviour
     public void OutputText(string output) //matches the signature of the TextOutputHandler delegate
     {
         Debug.LogFormat("{0} output by GameSceneController", output);
+    }
+
+    private void EnemyAtBottom(EnemyController enemy)
+    {
+        Destroy(enemy.gameObject);
+        Debug.Log("Enemy Escaped");
     }
 }
