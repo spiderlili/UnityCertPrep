@@ -17,7 +17,6 @@ public class GameSceneController : MonoBehaviour
 
     void Start()
     {
-        playerSpeed = 10;
         screenBounds = GetScreenBounds();
         StartCoroutine(SpawnEnemies());
         hudController = FindObjectOfType<HUDController>();

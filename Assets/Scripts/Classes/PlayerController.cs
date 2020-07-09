@@ -6,15 +6,13 @@ namespace Classes
 { 
     public class PlayerController : Shape
     {
-        private GameSceneController gameSceneController;
         public ProjectileController projectilePrefab;
 
-       void Start()
-        {
-            //FindObjectOfType: generic function that finds and returns an instance of specified class
-            gameSceneController = FindObjectOfType<GameSceneController>(); 
+       protected override void Start()
+       {
+            base.Start();
             SetColor(Color.yellow);
-        }
+       }
 
     // Update is called once per frame
         void Update()
@@ -36,7 +34,13 @@ namespace Classes
                 //keep movement smooth between frames
                 horizontalMovement = horizontalMovement * Time.deltaTime * gameSceneController.playerSpeed;
                 horizontalMovement += transform.position.x;
-                transform.position = new Vector2(horizontalMovement, transform.position.y); //keep vertical pos the same
+
+                //limit player movement to be within screen bounds
+                float right = gameSceneController.screenBounds.x - halfWidth;
+                float left = -right;
+                float limitHorizontalMovement = Mathf.Clamp(horizontalMovement, left, right);
+                //if use horizontalMovement: it behaves fine
+                transform.position = new Vector2(limitHorizontalMovement, transform.position.y); //keep vertical pos the same
             }
         }
 

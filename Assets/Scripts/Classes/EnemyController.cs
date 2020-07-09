@@ -5,15 +5,16 @@ using UnityEngine;
 
 public delegate void EnemyEscapedHandler(EnemyController enemy);
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : Shape
 {
     public event EnemyEscapedHandler EnemyEscaped;
     public event Action<int> EnemyKilled; //no need to create a delegate
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-
+        base.Start();
+        Debug.Log("Enemy Spawned");
     }
 
     // Update is called once per frame
@@ -38,12 +39,12 @@ public class EnemyController : MonoBehaviour
     private void MoveEnemy(TextOutputHandler textOutputHandler)
     {
         transform.Translate(Vector2.down * Time.deltaTime, Space.World);
-        float bottom = transform.position.y;
-        //if(bottom <= -gameSceneController.screenBounds.y)
-        //{
+        float bottom = transform.position.y - halfHeight;
+        if(bottom <= -gameSceneController.screenBounds.y)
+        {
             textOutputHandler("Enemy at bottom"); //callback delegate
             //GameSceneController.KillObject(this);
-        //}
+        }
     }
 
     //fire an EnemyKilled event every time it's hit by a projectile
@@ -61,15 +62,15 @@ public class EnemyController : MonoBehaviour
     {
         transform.Translate(Vector2.down * Time.deltaTime, Space.World);
         float bottom = transform.position.y;
-        //if(bottom <= -gameSceneController.screenBounds.y)
-        //{
-        //any class with access to the enemy controller can subscribe to this event
-        //can be simplified to: EnemyEscaped?.Invoke(this); less readable
-        if (EnemyEscaped != null)
+        if(bottom <= -gameSceneController.screenBounds.y)
         {
-            EnemyEscaped(this); //this represents the current instance of this EnemyController class, conform to delegate signature
+            //any class with access to the enemy controller can subscribe to this event
+            //can be simplified to: EnemyEscaped?.Invoke(this); less readable
+            if (EnemyEscaped != null)
+            {
+                EnemyEscaped(this); //this represents the current instance of this EnemyController class, conform to delegate signature
+            }
+            //GameSceneController.KillObject(this);
         }
-        //GameSceneController.KillObject(this);
-        //}
     }
 }
