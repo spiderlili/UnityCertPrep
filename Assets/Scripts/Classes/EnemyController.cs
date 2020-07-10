@@ -5,7 +5,7 @@ using UnityEngine;
 
 public delegate void EnemyEscapedHandler(EnemyController enemy);
 
-public class EnemyController : Shape
+public class EnemyController : Shape, IKillable
 {
     public event EnemyEscapedHandler EnemyEscaped;
     public event Action<int> EnemyKilled; //no need to create a delegate
@@ -14,6 +14,7 @@ public class EnemyController : Shape
     protected override void Start()
     {
         base.Start();
+        Name = "Enemy";
         Debug.Log("Enemy Spawned");
     }
 
@@ -43,7 +44,7 @@ public class EnemyController : Shape
         if(bottom <= -gameSceneController.screenBounds.y)
         {
             textOutputHandler("Enemy at bottom"); //callback delegate
-            //GameSceneController.KillObject(this);
+            gameSceneController.KillObject(this);
         }
     }
 
@@ -54,7 +55,8 @@ public class EnemyController : Shape
         {
             EnemyKilled(10);
             Destroy(collision.gameObject); //destroy instance of the projectile hitting the enemy
-            Destroy(gameObject); //destroy instance of enemy
+            gameSceneController.KillObject(this);
+            //Destroy(gameObject); //destroy instance of enemy
         }
     }
 
@@ -72,5 +74,10 @@ public class EnemyController : Shape
             }
             //GameSceneController.KillObject(this);
         }
+    }
+
+    public string GetName()
+    {
+        return name;
     }
 }

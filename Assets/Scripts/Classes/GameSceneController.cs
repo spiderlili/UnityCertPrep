@@ -64,4 +64,10 @@ public class GameSceneController : MonoBehaviour
         Destroy(enemy.gameObject);
         Debug.Log("Enemy Escaped");
     }
+
+    public void KillObject(IKillable killable)
+    {
+        Debug.LogWarningFormat("{0} killed by Game Scene Controller", killable.GetName());
+        killable.Kill(); //will take any class/struct that implements IKillable
+    }
 }
