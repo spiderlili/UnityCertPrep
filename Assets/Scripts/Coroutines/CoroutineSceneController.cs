@@ -6,20 +6,50 @@ public class CoroutineSceneController : MonoBehaviour
 {
     public List<Shape> gameShapes;
     public float secondsToWait = 1f;
+    public bool pauseGameAfterSetShapeColor = false;
+    public int numberToCountTo = 10000;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            StartCoroutine(CountToNumber(numberToCountTo));
+            //CountToNumber(numberToCountTo);
+            Debug.Log("Space Key Press complete");
+            
             StartCoroutine(SetShapesBlue());
-            Time.timeScale = 0; //pause the game
+            if(pauseGameAfterSetShapeColor == true)
+            {
+                Time.timeScale = 0; //pause the game
+            }
             //SetShapesRed();
         }
     }
 
+    //allows coroutines to run independent of the update() method
+    private IEnumerator CountToNumber(int NumberToCountTo)
+    {
+        for (int i = 0; i <= NumberToCountTo; i++)
+        {
+            Debug.Log(i);
+            yield return null;
+        }
+    }
+
+    //traditional method without coroutine: will result in a hang if number is too large as process has to be complete to continue
+    /*
+    private void CountToNumber(int NumberToCountTo)
+    {
+        for(int i = 0; i <= NumberToCountTo; i++)
+        {
+            Debug.Log(i);
+        }
+    }*/
+
     private IEnumerator SetShapesBlue()
     {
+        Debug.Log("Start changing colours.");
         foreach (Shape shape in gameShapes)
         {
             shape.SetColor(Color.blue);

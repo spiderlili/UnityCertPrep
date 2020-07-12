@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431473718}
   - component: {fileID: 431473717}
+  - component: {fileID: 431473719}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -155,6 +156,9 @@ MonoBehaviour:
   - {fileID: 1633723964}
   - {fileID: 1156715439}
   - {fileID: 1227815034}
+  secondsToWait: 1
+  pauseGameAfterSetShapeColor: 0
+  numberToCountTo: 10000
 --- !u!4 &431473718
 Transform:
   m_ObjectHideFlags: 0
@@ -169,6 +173,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &431473719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431473716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25ea7528e76c8d4fafa969d6318839a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 1
+  Text: 'If Number To Count To is high (>10000): will result in a hang in the game.
+    This can be resolved with coroutine to allow parallel execution.'
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
