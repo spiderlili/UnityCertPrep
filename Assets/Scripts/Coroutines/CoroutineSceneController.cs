@@ -9,12 +9,20 @@ public class CoroutineSceneController : MonoBehaviour
     public bool pauseGameAfterSetShapeColor = false;
     public int numberToCountTo = 10000;
 
+    //stopping a coroutine by reference
+    private Coroutine countToNumberCoroutine;
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(CountToNumber(numberToCountTo));
+            //start and stop a coroutine by reference
+            countToNumberCoroutine = StartCoroutine(CountToNumber(numberToCountTo));
+
+            //must start coroutine with a string to stop it using a string
+            StartCoroutine("CountToNumber", numberToCountTo); 
+            //StartCoroutine(CountToNumber(numberToCountTo));
             //CountToNumber(numberToCountTo);
             Debug.Log("Space Key Press complete");
             
@@ -24,6 +32,13 @@ public class CoroutineSceneController : MonoBehaviour
                 Time.timeScale = 0; //pause the game
             }
             //SetShapesRed();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            StopCoroutine(countToNumberCoroutine); //stop a coroutine by reference
+            //StopCoroutine("CountToNumber"); //stop a coroutine by string
+            //StopAllCoroutines();
         }
     }
 
@@ -63,6 +78,9 @@ public class CoroutineSceneController : MonoBehaviour
         }
         yield return new WaitForSecondsRealtime(1); //can yield more than once in a coroutine
         Debug.Log("just wasted a second");
+
+        //stops coroutine
+        yield return StartCoroutine(SetShapesBlue()); //keep cycling through shapes 
     }
 
     private void SetShapesRed()
