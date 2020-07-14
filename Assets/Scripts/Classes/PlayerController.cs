@@ -7,12 +7,14 @@ namespace Classes
     public class PlayerController : Shape
     {
         public ProjectileController projectilePrefab;
+        private PlayerController player;
 
-       protected override void Start()
-       {
+        protected override void Start()
+        {
             base.Start();
             SetColor(Color.yellow);
-       }
+            player = FindObjectOfType<PlayerController>(); //caching reference to make code more efficient
+        }
 
     // Update is called once per frame
         void Update()
@@ -21,6 +23,7 @@ namespace Classes
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 FireProjectile();
+                player.SetColor(Color.red);
             }
         }
 

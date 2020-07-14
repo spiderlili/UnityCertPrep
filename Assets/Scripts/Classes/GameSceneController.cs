@@ -7,7 +7,7 @@ public delegate void TextOutputHandler(string text); //can represent any method 
 
 public class GameSceneController : MonoBehaviour
 {
-    public float playerSpeed;
+    public float playerSpeed = 10f;
     public Vector3 screenBounds;
     public EnemyController enemyPrefab;
     public int spawnCycleSeconds = 2;
