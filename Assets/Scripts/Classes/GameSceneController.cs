@@ -7,9 +7,18 @@ public delegate void TextOutputHandler(string text); //can represent any method 
 
 public class GameSceneController : MonoBehaviour
 {
-    public float playerSpeed = 10f;
-    public Vector3 screenBounds;
-    public EnemyController enemyPrefab;
+    [Header("Player Settings")]
+    [Range(5,20)]
+    public float playerSpeed = 10f; //public as used by other game objects
+
+    [Header("Screen Settings")]
+    [Space]
+    public Vector3 screenBounds; //public as used by other game objects
+
+    [Header("Prefab")]
+    [Space]
+    [SerializeField]
+    private EnemyController enemyPrefab; //based on the principle of encapsulation – this really ought to be private!  
     public int spawnCycleSeconds = 2;
 
     private HUDController hudController;
