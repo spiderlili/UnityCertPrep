@@ -27,9 +27,16 @@ public class AssetBundleLoaderLocal : MonoBehaviour
         GameObject assetPrefab = assetBundle.LoadAsset<GameObject>("ZomBear.fbx");
         Instantiate(assetPrefab);
 
-        //load texture in bundle
+        //load texture in bundle: check manifest files from streaming asset for asset names, deal with special cases (skinnedMeshRenderer / MeshRenderer compatibility)
         Texture tex = assetBundle.LoadAsset<Texture>("ZomBearDiffuse.png");
         Renderer rend = assetPrefab.GetComponentInChildren<SkinnedMeshRenderer>();
-        rend.sharedMaterials[0].mainTexture = tex;
+        if (rend == null)
+        {
+            rend = assetPrefab.GetComponentInChildren<MeshRenderer>();
+        }
+        if (rend != null)
+        {
+            rend.sharedMaterials[0].mainTexture = tex;
+        }
     }
 }
