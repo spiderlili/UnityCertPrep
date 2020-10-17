@@ -6,6 +6,7 @@ public class DestroyWhenInvisible : MonoBehaviour
 {
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        this.gameObject.SetActive(false); //make it go back to the pool automatically
     }
 }

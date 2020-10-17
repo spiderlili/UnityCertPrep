@@ -16,11 +16,15 @@ public class Drive : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             //Instantiate(bullet, this.transform.position, Quaternion.identity); //expensive to instantiate bullets all the time, taking up all memory
-            GameObject bulletPooled = Pool.singleton.GetPooledItem("bullet"); //recycle the bullet from the object pool
+            GameObject bulletPooled = Pool.singleton.GetPooledItem("Bullet"); //recycle the bullet from the object pool
             if (bulletPooled != null)
             {
-
+                bulletPooled.transform.position = this.transform.position;
+                bulletPooled.transform.rotation = Quaternion.identity;
+                bulletPooled.SetActive(true); //make it unavailable to reuse from the pool elsewhere
+                //Debug.Log("bullet pooled is not null");
             }
         }
+
     }
 }
