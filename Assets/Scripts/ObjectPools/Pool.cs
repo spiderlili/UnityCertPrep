@@ -7,7 +7,7 @@ using UnityEngine;
 public class PoolItem
 {
     public GameObject prefab;
-    public int maxAmount;
+    public int maxAmount = 6;
 }
 
 public class Pool : MonoBehaviour
@@ -31,16 +31,24 @@ public class Pool : MonoBehaviour
             for (int i = 0; i < item.maxAmount; i++)
             {
                 GameObject obj = Instantiate(item.prefab);
-                //control whether it's being used or not. when it's in the pool: the obj is going to be inactive & ready to be used
+                //control whether it's being used or not. when it's in the pool: the obj is going to be initially inactive & ready to be used
                 obj.SetActive(false);
                 pooledItems.Add(obj);
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    //obtain 1 of these pooled items for use in the game by other scripts (Drive.cs)
+    public GameObject GetPooledItem(string itemTag)
     {
-
+        for (int i = 0; i < pooledItems.Count; i++)
+        {
+            //if pooled item is inactive & matches the specified tag: it can be used
+            if (!pooledItems[i].activeInHierarchy && pooledItems[i].tag == itemTag)
+            {
+                return pooledItems[i];
+            }
+        }
+        return null; //there is no availble pooled item for use at this time
     }
 }

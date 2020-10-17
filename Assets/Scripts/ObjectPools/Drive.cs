@@ -15,7 +15,12 @@ public class Drive : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            Instantiate(bullet, this.transform.position, Quaternion.identity); //expensive to instantiate bullets all the time, taking up all memory
+            //Instantiate(bullet, this.transform.position, Quaternion.identity); //expensive to instantiate bullets all the time, taking up all memory
+            GameObject bulletPooled = Pool.singleton.GetPooledItem("bullet"); //recycle the bullet from the object pool
+            if (bulletPooled != null)
+            {
+
+            }
         }
     }
 }
