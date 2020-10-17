@@ -7,6 +7,13 @@ public class Drive : MonoBehaviour
     public float speed = 10.0f;
     public GameObject bullet;
 
+    private Vector2 screenBounds;
+
+    private void Start()
+    {
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+    }
+
     void Update()
     {
         float translation = Input.GetAxis("Horizontal") * speed;
@@ -25,6 +32,13 @@ public class Drive : MonoBehaviour
                 //Debug.Log("bullet pooled is not null");
             }
         }
-
     }
+
+    /*
+        private void LateUpdate()
+        {
+            Vector3 viewPosition = transform.position;
+            viewPosition.x = Mathf.Clamp(viewPosition.x, screenBounds.x, screenBounds.x * -1);
+            transform.position = viewPosition;
+        } */
 }
