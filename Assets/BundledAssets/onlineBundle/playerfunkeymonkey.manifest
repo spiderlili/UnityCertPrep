@@ -1,0 +1,84 @@
+ManifestFileVersion: 0
+CRC: 3899851917
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: dbdb38508de7a09c07561fa130151786
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2fdd384854108712663e29428a6008ed
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a8388ca91402043bca401bfa0ef35eb4, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Body_Gloss.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/Materials/FunkeyMonkey_Top_Diffuse.mat
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Hair_Diffuse.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Top_Normal.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Hair_Specular.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Bottom_Gloss.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Beard_Diffuse.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Bottom_Normal.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Hair_Normal.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/Materials/FunkeyMonkey_Bottom_Diffuse.mat
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Top_Specular.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/Materials/FunkeyMonkey_Beard_Diffuse.mat
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey@running_inPlace.fbx
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey@idle.fbx
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Shoes_Specular.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/Materials/FunkeyMonkey_Hair_Diffuse.mat
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Shoes_Gloss.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/Materials/FunkeyMonkey_Shoes_Diffuse.mat
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Body_Diffuse.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Shoes_Opacity.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Bottom_Opacity.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/Materials/FunkeyMonkey_Body_Diffuse.mat
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Hair_Gloss.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Top_Gloss.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Body_Normal.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Beard_Opacity.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/Funkey.controller
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Beard_Normal.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.prefab
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Hair_Opacity.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Shoes_Normal.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Shoes_Diffuse.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Body_Specular.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Body_Opacity.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Top_Opacity.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Bottom_Diffuse.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbx
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Top_Diffuse.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Beard_Specular.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Bottom_Specular.png
+- Assets/Scripts/AssetBundles/FunkeyMonkey/FunkeyMonkey.fbm/FunkeyMonkey_Beard_Gloss.png
+Dependencies: []
