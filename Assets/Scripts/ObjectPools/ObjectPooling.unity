@@ -260,9 +260,11 @@ MonoBehaviour:
   - prefab: {fileID: 8409365484548447811, guid: 07c5a3b2517351041ae734c22b6d3148,
       type: 3}
     maxAmount: 5
+    expandable: 0
   - prefab: {fileID: 7827405920095838888, guid: 053129f826a8e6b4e8ba9569c983de1f,
       type: 3}
     maxAmount: 5
+    expandable: 1
   pooledItems: []
 --- !u!1 &282293203
 GameObject:
@@ -296,6 +298,7 @@ MonoBehaviour:
   asteroid: {fileID: 7827405920095838888, guid: 053129f826a8e6b4e8ba9569c983de1f,
     type: 3}
   randomXRange: 10
+  maxNumberOfAsteroids: 3
 --- !u!4 &282293205
 Transform:
   m_ObjectHideFlags: 0

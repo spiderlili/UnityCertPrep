@@ -8,6 +8,7 @@ public class PoolItem
 {
     public GameObject prefab;
     public int maxAmount = 6;
+    public bool expandable; //some things in the pool can be expanded and some can't
 }
 
 public class Pool : MonoBehaviour
@@ -47,6 +48,17 @@ public class Pool : MonoBehaviour
             if (!pooledItems[i].activeInHierarchy && pooledItems[i].tag == itemTag)
             {
                 return pooledItems[i];
+            }
+        }
+        //if item is expandable: allows it to be initialised with a different number to its limit
+        foreach (PoolItem item in poolItems)
+        {
+            if (item.tag == itemTag && item.expandable == true)
+            {
+                GameObject obj = Instantiate(item.prefab);
+                obj.SetActive(false);
+                pooledItems.Add(obj); //add to the pool for reuse
+                return obj;
             }
         }
         return null; //there is no availble pooled item for use at this time
