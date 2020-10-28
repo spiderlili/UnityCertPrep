@@ -17,7 +17,14 @@ public class AsteroidSpawner : MonoBehaviour
     {
         if (Random.Range(0, 100) < 3)
         {
-            Instantiate(asteroid, this.transform.position + new Vector3(Random.Range(-randomXRange, randomXRange), 0, 0), Quaternion.identity);
+            //Instantiate(asteroid, this.transform.position + new Vector3(Random.Range(-randomXRange, randomXRange), 0, 0), Quaternion.identity);
+            GameObject asteroid = Pool.singleton.GetPooledItem("Asteroid");
+            if (asteroid != null)
+            {
+                //add randomness to asteroid's X position
+                asteroid.transform.position = this.transform.position + new Vector3(Random.Range(-10, 10), 0, 0);
+                asteroid.SetActive(true);
+            }
         }
     }
 }
