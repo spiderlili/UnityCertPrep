@@ -53,7 +53,7 @@ public class Pool : MonoBehaviour
         //if item is expandable: allows it to be initialised with a different number to its limit
         foreach (PoolItem item in poolItems)
         {
-            if (item.tag == itemTag && item.expandable == true)
+            if (item.prefab.tag == itemTag && item.expandable == true)
             {
                 GameObject obj = Instantiate(item.prefab);
                 obj.SetActive(false);
