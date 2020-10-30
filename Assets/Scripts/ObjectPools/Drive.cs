@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Drive : MonoBehaviour
 {
     public float speed = 10.0f;
     public GameObject bullet;
+    public Slider healthBar;
+    public float healthBarOffsetY = 80.0f;
 
     private Vector2 screenBounds;
 
@@ -31,7 +34,22 @@ public class Drive : MonoBehaviour
                 bulletPooled.SetActive(true); //make it unavailable to reuse from the pool elsewhere
                 //Debug.Log("bullet pooled is not null");
             }
+
         }
+        AlignHealthSliderToShip();
+    }
+
+    //update the slider position based on the world position of the ship (the object that this script is attached to), project back to the canvas to get canvas position
+    void AlignHealthSliderToShip()
+    {
+        Vector3 shipScreenPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        healthBar.transform.position = new Vector3(shipScreenPos.x, shipScreenPos.y - healthBarOffsetY, shipScreenPos.z);
+    }
+
+    //reduce the value on healthbar when colliding with asteroids
+    void DamageHealthBar()
+    {
+        //healthbar.value
     }
 
     /*
