@@ -522,6 +522,7 @@ MonoBehaviour:
   healthBar: {fileID: 770175991}
   healthBarOffsetY: 80
   asteroidDamage: 10
+  explosionVFX: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
 --- !u!58 &524252671
 CircleCollider2D:
   m_ObjectHideFlags: 0

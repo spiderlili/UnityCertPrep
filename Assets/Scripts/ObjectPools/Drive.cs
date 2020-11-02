@@ -10,6 +10,7 @@ public class Drive : MonoBehaviour
     public Slider healthBar;
     public float healthBarOffsetY = 80.0f;
     public float asteroidDamage = 10.0f;
+    public GameObject explosionVFX;
 
     private Vector2 screenBounds;
 
@@ -62,10 +63,16 @@ public class Drive : MonoBehaviour
         healthBar.value -= asteroidDamage;
         if (healthBar.value <= 0)
         {
+            Explode();
             //if trying to destroy something with code on it which is still running: it might complain & code after this won't run
             Destroy(healthBar.gameObject, 0.1f);
             Destroy(this.gameObject, 0.1f);
         }
+    }
+
+    void Explode()
+    {
+        Instantiate(explosionVFX, this.transform.position, Quaternion.identity);
     }
 
     /*
