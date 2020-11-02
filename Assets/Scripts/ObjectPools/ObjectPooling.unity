@@ -520,6 +520,8 @@ MonoBehaviour:
   speed: 10
   bullet: {fileID: 8409365484548447811, guid: 07c5a3b2517351041ae734c22b6d3148, type: 3}
   healthBar: {fileID: 770175991}
+  healthBarOffsetY: 80
+  asteroidDamage: 10
 --- !u!58 &524252671
 CircleCollider2D:
   m_ObjectHideFlags: 0

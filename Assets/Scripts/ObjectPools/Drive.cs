@@ -9,12 +9,22 @@ public class Drive : MonoBehaviour
     public GameObject bullet;
     public Slider healthBar;
     public float healthBarOffsetY = 80.0f;
+    public float asteroidDamage = 10.0f;
 
     private Vector2 screenBounds;
 
     private void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //make sure it's not colliding with other things, put asteroid back in the pool for later reuse rather than destroying it forever
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            DamageHealthBar();
+        }
     }
 
     void Update()
@@ -49,7 +59,13 @@ public class Drive : MonoBehaviour
     //reduce the value on healthbar when colliding with asteroids
     void DamageHealthBar()
     {
-        //healthbar.value
+        healthBar.value -= asteroidDamage;
+        if (healthBar.value <= 0)
+        {
+            //if trying to destroy something with code on it which is still running: it might complain & code after this won't run
+            Destroy(healthBar.gameObject, 0.1f);
+            Destroy(this.gameObject, 0.1f);
+        }
     }
 
     /*

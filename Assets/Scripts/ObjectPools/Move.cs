@@ -8,7 +8,7 @@ public class Move : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //make sure it's not colliding with other thing, put asteroid back in the pool for later reuse rather than destroying it forever
+        //make sure it's not colliding with other things, put asteroid back in the pool for later reuse rather than destroying it forever
         if (collision.gameObject.tag == "Asteroid")
         {
             //Destroy(collision.gameObject);
