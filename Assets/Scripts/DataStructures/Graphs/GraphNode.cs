@@ -62,7 +62,7 @@ namespace Graphs
             }
         }
 
-        //remove the given node as a neighbour for this node: only remove neighbours in this list
+        //remove the given node as a neighbour for this node: only remove neighbours in this list. 
         public bool RemoveNeighbour(GraphNode<T> neighbour)
         {
             return neighbours.Remove(neighbour); //will return false if the neighbour is NOT contained in the list
