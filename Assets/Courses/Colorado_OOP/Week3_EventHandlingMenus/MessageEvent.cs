@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MessageEvent : UnityEvent
+// Serialize MessageEvent so it can be displayed in the Editor
+namespace ColoradoOOP
 {
+    [System.Serializable]
+    public class MessageEvent : UnityEvent
+    {
 
+    }
 }
+
