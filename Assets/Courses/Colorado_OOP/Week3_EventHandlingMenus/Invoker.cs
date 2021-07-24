@@ -6,27 +6,39 @@ using UnityEngine.Events;
 
 namespace ColoradoOOP
 {
-    // TODO: Copy one of the Timer scripts we've been using into the project. Declare fields for a timer and a no argument event object. 
     public class Invoker : MonoBehaviour
     {
+        // Copy one of the Timer scripts we've been using into the project. Declare fields for a timer and a no argument event object. 
+        private Timer timer;
+        private MessageEvent messageEvent;
+        [SerializeField] private float messageRepeatDuration = 1.0f;
         private void Awake()
         {
-            // TODO: Create an instance of the event object
+            // Create an instance of the event object
+            messageEvent = new MessageEvent();
         }
 
-        public void AddNoArgumentListener()
+        public void AddNoArgumentListener(UnityAction listener)
         {
-            // TODO: add a no-argument UnityAction delegate as a listener
+            // Add a no-argument UnityAction delegate as a listener
+            messageEvent.AddListener(listener);
         }
         
         void Start()
         {
-            // TODO: add a Timer component, set its duration to 1 second, run the timer.
+            // Add a Timer component, set its duration to 1 second, run the timer.
+            timer = this.gameObject.AddComponent<Timer>();
+            timer.Duration = messageRepeatDuration;
+            timer.Run();
         }
         
         void Update()
         {
-            // TODO: invoke the event, run the timer again after it's finished.
+            // Invoke the event, run the timer again after it's finished.
+            messageEvent.Invoke();
+            if (timer.Finished) {
+                timer.Run();
+            }
         }
     }  
 }
