@@ -132,6 +132,9 @@ GameObject:
   - component: {fileID: 982107100}
   - component: {fileID: 982107099}
   - component: {fileID: 982107098}
+  - component: {fileID: 982107102}
+  - component: {fileID: 982107101}
+  - component: {fileID: 982107103}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -204,6 +207,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982107101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982107097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee8b82346d36441ba06030186b921c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &982107102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982107097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7100a3594fa6459eb3662a8995c921e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &982107103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982107097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25ea7528e76c8d4fafa969d6318839a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 1
+  Text: 'run the game: the user-defined message should be printed in the console
+    window every second'
 --- !u!1 &1665620625
 GameObject:
   m_ObjectHideFlags: 0
