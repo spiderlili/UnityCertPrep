@@ -48,7 +48,9 @@ public class BaseUnit : MonoBehaviour
             OnSubtractHp(this, harmNumber, damageType, hpDisplayType);
         }
         */
-
+        print("harmNumber: " + harmNumber);
+        print("damageType: " + damageType);
+        print("hpDisplayType: " + hpDisplayType);
     }
 
     public bool IsHero => true;
