@@ -31,7 +31,7 @@ public class BattleInformationComponent : MonoBehaviour
 
     // When the BaseUnit is attacked: it will invoke this callback event
     private void OnSubtractHp(
-        BaseUnit source, 
+        BaseUnit attackerSource, 
         float subtractHp, 
         BaseUnit.DamageType damageType, 
         BaseUnit.HpDisplayType hpDisplayType)
@@ -44,7 +44,7 @@ public class BattleInformationComponent : MonoBehaviour
         if (hpDisplayType == BaseUnit.HpDisplayType.Miss) {
             Debug.Log(missedMessage);
         }
-        if (source.IsHero) {
+        if (attackerSource.IsHero) {
             unitName = "Hero";
         } else {
             unitName = "Soldier";
