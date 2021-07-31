@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Runtime.Versioning;
 using UnityEngine;
+using TMPro;
 
 public class BattleInformationComponent : MonoBehaviour
 {
     public BaseUnit unit;
+    public TMP_Text damageValueText;
     
     void Start()
     {
@@ -20,13 +22,16 @@ public class BattleInformationComponent : MonoBehaviour
         // Crete an instance of BaseUnit.SubtractHpHandler's delegate
         // use it to invoke BattleInformationComponent Type's OnSubtractHp method
         // Register this callback method as a subscriber to BaseUnit's OnSubtractHp Event
-        this.unit.OnSubtractHp += new BaseUnit.SubtractHpHandler(this.OnSubtractHp);
+
+        this.unit.OnSubtractHp += this.OnSubtractHp;
+        // this.unit.OnSubtractHp += new BaseUnit.SubtractHpHandler(this.OnSubtractHp);
     }
 
     // Unsubscribe to the OnSubtractHp event defined by BaseUnit
     private void RemoveListener()
     {
-        this.unit.OnSubtractHp -= new BaseUnit.SubtractHpHandler(this.OnSubtractHp);
+        this.unit.OnSubtractHp -= this.OnSubtractHp; 
+        // this.unit.OnSubtractHp -= new BaseUnit.SubtractHpHandler(this.OnSubtractHp);
     }
 
     // When the BaseUnit is attacked: it will invoke this callback event
@@ -45,12 +50,19 @@ public class BattleInformationComponent : MonoBehaviour
             Debug.Log(missedMessage);
         }
         if (attackerSource.IsHero) {
-            unitName = "Hero";
+            unitName = "Hero: ";
         } else {
-            unitName = "Soldier";
+            unitName = "Soldier: ";
         }
-        damageTypeMessage = damageType == BaseUnit.DamageType.Critical ? "Critical!" : "Normal Attack";
+        damageTypeMessage = damageType == BaseUnit.DamageType.Critical ? "Critical! -Hp: " : "-Hp: ";
+
         damageHp = subtractHp.ToString();
         Debug.Log(unitName + damageTypeMessage + damageHp);
+        
+        if (hpDisplayType == BaseUnit.HpDisplayType.Miss) {
+            damageValueText.text = unitName + missedMessage;
+        } else {
+            damageValueText.text = unitName + damageTypeMessage + damageHp;
+        }
     }
 }

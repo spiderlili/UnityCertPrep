@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = System.Random;
 
 public class BaseUnit : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class BaseUnit : MonoBehaviour
         Miss
     }
 
+    public float minDamageValue = 1000.0f;
+    public float maxDamageValue = 3000.0f;
+
     public delegate void SubtractHpHandler(BaseUnit source, float subtractHp, DamageType damageType, HpDisplayType hpDisplayType);
     public event SubtractHpHandler OnSubtractHp;
 
@@ -24,7 +28,7 @@ public class BaseUnit : MonoBehaviour
         float possibility = UnityEngine.Random.value;
         bool isCritical = UnityEngine.Random.value > 0.5f;
         bool isMissed = UnityEngine.Random.value > 0.5f;
-        float harmNumber = 10000f;
+        float harmNumber = UnityEngine.Random.Range(minDamageValue, maxDamageValue);
         OnAttacked(harmNumber, isCritical, isMissed);
     }
 
