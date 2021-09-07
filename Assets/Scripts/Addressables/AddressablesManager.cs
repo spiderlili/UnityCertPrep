@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
+// TODO: configure sprite swapping, use the Addressables Event Viewer to see the memory beig managed for you, try other asset types (audioclips, materials, videoclips, etc)
 public class AddressablesManager : MonoBehaviour
 {
     [SerializeField] private Image imageForAddressableSprite;
@@ -23,12 +24,15 @@ public class AddressablesManager : MonoBehaviour
         Debug.Log("Load Addressable Scene");
     }
     
+    // Callback: a method is called to load the asset - this happens on a separate thread
     public void AddressableSprite()
     {
+        // When the LoadAssetAsync() completes: the Completed delegate is called
         assetReferenceSprite.LoadAssetAsync().Completed += OnSpriteLoaded;
         Debug.Log("Load Addressable Sprite");
     }
 
+    // OnSpriteLoaded() has been passed to the Completed delegate as a callback
     private void OnSpriteLoaded(AsyncOperationHandle<Sprite> handle)
     {
         imageForAddressableSprite.sprite = handle.Result;
