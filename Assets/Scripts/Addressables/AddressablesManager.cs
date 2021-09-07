@@ -1,18 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class AddressablesManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Image image;
+    // private GameObject prefab; // Old workflow
+    [SerializeField] private AssetReferenceGameObject assetReferenceGameObject;
+    [SerializeField] private AssetReference assetReferenceGameScene; // No specific type for a scene - general AssetReference
+    public void AddressablePrefab()
     {
-        
+        Addressables.InstantiateAsync(assetReferenceGameObject);
+        Debug.Log("Load Addressable Prefab");
+        // GameObject.Instantiate(prefab); // Old workflow
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void AddressableScene()
     {
-        
+        assetReferenceGameScene.LoadSceneAsync(UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        Debug.Log("Load Addressable Scene");
+    }
+    
+    public void AddressableSprite()
+    {
+        Debug.Log("Load Addressable Sprite");
     }
 }
