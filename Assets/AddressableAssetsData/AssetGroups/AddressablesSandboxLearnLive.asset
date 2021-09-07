@@ -29,6 +29,14 @@ MonoBehaviour:
     m_Address: Assets/Sprites/Triangle.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: ae3ff6571847a47c485f210ffa090e67
+    m_Address: Assets/Prefabs/PfAddressablesSandboxSphere.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b9929c13f14624f7c819c28364e484a1
+    m_Address: Assets/Sprites/Octagon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc41b7839772944bb866f6676e1cb789, type: 2}
   m_SchemaSet:

@@ -1595,6 +1595,18 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  assetReferenceSpriteAddress: Assets/Sprites/Octagon.png
+  useAddress: 0
+  mainObjectToLoad:
+    m_AssetGUID: 33e3bb45e844c48ec9c39380223492b0
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  accessoryObjectToLoad:
+    m_AssetGUID: ae3ff6571847a47c485f210ffa090e67
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &2034745007
 GameObject:
   m_ObjectHideFlags: 0
