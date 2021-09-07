@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 413593603}
   - component: {fileID: 413593602}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ImageSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,10 +308,10 @@ RectTransform:
   m_Father: {fileID: 880812174}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413593602
 MonoBehaviour:
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933f70e41ceb14f6586c6252293df0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 413593602}
+  imageForAddressableSprite: {fileID: 413593602}
   assetReferenceGameObject:
     m_AssetGUID: 33e3bb45e844c48ec9c39380223492b0
     m_SubObjectName: 
@@ -1446,6 +1446,11 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   assetReferenceGameScene:
     m_AssetGUID: 7f6cd567cb4a648fda2141e16ebae685
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  assetReferenceSprite:
+    m_AssetGUID: fe0d5b9e57b5c4d41831c4e2a4900c4b
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
