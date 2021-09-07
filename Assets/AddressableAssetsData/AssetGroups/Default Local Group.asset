@@ -21,6 +21,10 @@ MonoBehaviour:
     m_Address: Assets/Scenes/AddressablesSandbox.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: ebbdac333827e4bf99bdce89cedd0df8
+    m_Address: Assets/AddressablesSpritesAtlasTest.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc41b7839772944bb866f6676e1cb789, type: 2}
   m_SchemaSet:

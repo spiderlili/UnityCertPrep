@@ -1597,6 +1597,15 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   assetReferenceSpriteAddress: Assets/Sprites/Octagon.png
   useAddress: 0
+  newAtlasedSprite:
+    m_AssetGUID: ebbdac333827e4bf99bdce89cedd0df8
+    m_SubObjectName: Circle
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0
+  spriteAtlasAddress: Assets/AddressablesSpritesAtlasTest.spriteatlas
+  atlasedSpriteName: Circle
+  useAtlasedSpriteName: 1
   mainObjectToLoad:
     m_AssetGUID: 33e3bb45e844c48ec9c39380223492b0
     m_SubObjectName: 

@@ -18,7 +18,15 @@ public class AddressablesManager : MonoBehaviour
     [SerializeField] private string assetReferenceSpriteAddress;
     [Tooltip("Enable useAddress to load octagon sprite, otherwise load triangle sprite by reference")]
     [SerializeField] private bool useAddress;
+    
+    [Header("Load Addressable Atlased Sprites")]
+    [SerializeField] private AssetReferenceAtlasedSprite newAtlasedSprite;
+    [SerializeField] private string spriteAtlasAddress;
+    [SerializeField] private string atlasedSpriteName;
+    [Tooltip("Enable useAtlasedSpriteName to load circle sprite from sprite atlas")]
+    [SerializeField] private bool useAtlasedSpriteName;
 
+    [Header("Load Parent & Child Object Hierarchy")]
     [Tooltip("Parent Object")]
     [SerializeField] private AssetReference mainObjectToLoad;
     [Tooltip("Child Object")]
@@ -68,14 +76,23 @@ public class AddressablesManager : MonoBehaviour
     // registers a listener for the Completed callback of the load command, which is invoked immediately
     public void AddressableSprite()
     {
-        if (useAddress) {
-            // When the LoadAssetAsync() completes: the Completed delegate is called. LoadAssetAsync loads an Addressable Asset into memory, but does not instantiate it. 
-            Addressables.LoadAssetAsync<Sprite>(assetReferenceSpriteAddress).Completed += OnSpriteLoaded;
+        // Load Atlased Sprite
+        if (useAtlasedSpriteName) {
+            string atlasedSpriteAddress = spriteAtlasAddress + '[' + atlasedSpriteName + ']';
+            // Addressables.LoadAssetAsync<Sprite>(atlasedSpriteAddress).Completed += OnSpriteLoaded;
+            
+            // Load the Atlas and use a helper function to find the Sprite by its name.
+            Addressables.LoadAssetAsync<SpriteAtlas>(spriteAtlasAddress).Completed += OnSpriteAtlasLoaded;
         } else {
-            assetReferenceSprite.LoadAssetAsync().Completed += OnSpriteLoaded;
+            // Load unatlased Sprite
+            if (useAddress) {
+                // When the LoadAssetAsync() completes: the Completed delegate is called. LoadAssetAsync loads an Addressable Asset into memory, but does not instantiate it. 
+                Addressables.LoadAssetAsync<Sprite>(assetReferenceSpriteAddress).Completed += OnSpriteLoaded;
+            } else {
+                assetReferenceSprite.LoadAssetAsync().Completed += OnSpriteLoaded;
+            }
+            Debug.Log("Load Addressable Sprite");
         }
-        Debug.Log("Load Addressable Sprite");
-        
     }
 
     // OnSpriteLoaded() has been passed to the Completed delegate as a callback
@@ -88,6 +105,20 @@ public class AddressablesManager : MonoBehaviour
                 break;
             case AsyncOperationStatus.Failed:
                 Debug.LogError("Sprite Load Failed!");
+                break;
+            default:
+                break;
+        }
+    }
+    
+    private void OnSpriteAtlasLoaded(AsyncOperationHandle<SpriteAtlas> handle)
+    {
+        switch (handle.Status) {
+            case AsyncOperationStatus.Succeeded:
+                imageForAddressableSprite.sprite = handle.Result.GetSprite(atlasedSpriteName);
+                break;
+            case AsyncOperationStatus.Failed:
+                Debug.LogError("Sprite Load from Sprite Atlas Failed!");
                 break;
             default:
                 break;
