@@ -14,6 +14,13 @@ public class HealthSubscriber : MonoBehaviour
         StartCoroutine(HealthDrain());
     }
 
+    // Should only communicate with other components in Start()
+    private void Start()
+    {
+        // Add ResetHealth listener which will be called whenever the onLevelUpAction Event happens
+        // GetComponent<LevelUpSubject>().onLevelUpAction += ResetHealth;
+    }
+
     public float GetHealth(){
         return currentHealth;
     }
