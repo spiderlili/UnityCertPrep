@@ -616,6 +616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1188672864}
   - component: {fileID: 1188672865}
+  - component: {fileID: 1188672866}
   m_Layer: 0
   m_Name: Level Up - Subject
   m_TagString: Untagged
@@ -677,6 +678,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1188672866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188672863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25ea7528e76c8d4fafa969d6318839a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 1
+  Text: Will play the Level Up UnityEvent VFX when using Event Action, and Event
+    Action VFX when using UnityEvent
 --- !u!1 &1306423078
 GameObject:
   m_ObjectHideFlags: 0
@@ -5856,8 +5872,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061234443}
-  - component: {fileID: 2061234445}
+  - component: {fileID: 2061234446}
   - component: {fileID: 2061234444}
+  - component: {fileID: 2061234445}
   m_Layer: 0
   m_Name: Particle System - Event Action
   m_TagString: Untagged
@@ -10601,3 +10618,16 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &2061234446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061234442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c82f909be6974001ab68a665b01201f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUpSubject: {fileID: 1188672865}
