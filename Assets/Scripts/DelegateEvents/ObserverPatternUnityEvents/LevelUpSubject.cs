@@ -7,10 +7,12 @@ public class LevelUpSubject : MonoBehaviour
 {
     [SerializeField] private int pointsPerLevel = 200;
     private int experiencePoints = 0;
-    [SerializeField] private UnityEvent onLevelUp;
+    [SerializeField] private UnityEvent onLevelUp; // Can be safely removed if using Action or Event instead
     
     // Alternative way using Event
-    public event Action onLevelUpAction; 
+    public event Action ONLevelUpAction;
+
+    delegate void CallbackType();
 
     IEnumerator Start(){
         while(true){
@@ -23,10 +25,10 @@ public class LevelUpSubject : MonoBehaviour
         int level = GetLevel();
         experiencePoints += points;
         if(GetLevel() > level){
-            if (onLevelUpAction != null) {
-                onLevelUpAction();
+            if (ONLevelUpAction != null) {
+                ONLevelUpAction();
             } else {
-                onLevelUp.Invoke(); // If nothing is subscribed to onLevelUpAction in code: use UnityEvent instead (inefficient)
+                onLevelUp.Invoke(); // If nothing is subscribed to onLevelUpAction in code: use UnityEvent instead (inefficient). Code can be removed if not using UnityEvent
             }
             
         }
