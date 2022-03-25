@@ -19,14 +19,14 @@ public class ObserverLevelUpDebugger : MonoBehaviour
         }
         while(true){
             yield return new WaitForSeconds(1);
-            Debug.Log($"Experience: {level.GetExperience()}, Level:{level.GetLevel()}, Health:{health.GetHealth()}");
+            Debug.Log($"Experience: {level.GetExperience()}, Level:{level.GetLevel()}, Health:{health.GetCurrentHealth()}");
             
             if (levelText != null) {
                 levelText.text = "Level: " + level.GetLevel();
             }
 
             if (healthText != null) {
-                healthText.text = "Health: " + health.GetHealth();
+                healthText.text = "Health: " + health.GetCurrentHealth();
             }
 
             if (experienceText != null) {

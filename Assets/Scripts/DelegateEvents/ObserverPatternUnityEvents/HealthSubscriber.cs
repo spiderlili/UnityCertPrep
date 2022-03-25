@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 // Subscribes to LevelUpSubject
 public class HealthSubscriber : MonoBehaviour
 {
-    [SerializeField] float fullHealth = 100.0f;
+    [SerializeField] private float fullHealth = 100.0f;
     [SerializeField] float drainPerSecond = 2.0f;
     [SerializeField] private LevelUpSubject levelUpSubject;
-    [SerializeField] private Image healthBarImage;
     float currentHealth = 0;
+    public event Action ONHealthChange;
 
+    // [SerializeField] private Image healthBarImage; // Refactored in HealthPresenter.cs
+    
     private void Awake() {
         ResetHealth();
         StartCoroutine(HealthDrain());
@@ -36,26 +37,39 @@ public class HealthSubscriber : MonoBehaviour
         levelUpSubject.ONLevelUpAction -= ResetHealth;
     }
 
-    public float GetHealth(){
+    public float GetCurrentHealth(){
         return currentHealth;
+    }
+
+    public float GetFullHealth()
+    {
+        return fullHealth;
     }
     
     private void ResetHealth(){
         currentHealth = fullHealth;
-        UpdateUI();
+        if (ONHealthChange != null) {
+            ONHealthChange();
+        }
+        // UpdateUI(); // Refactored in HealthPresenter.cs
     }
 
     IEnumerator HealthDrain(){
         while(currentHealth > 0){
             currentHealth -= drainPerSecond;
-            UpdateUI();
+            if (ONHealthChange != null) {
+                ONHealthChange();
+            }
+            // UpdateUI(); // Refactored in HealthPresenter.cs
             yield return new WaitForSeconds(1);
         }
         yield return null;
     }
 
+    /* Refactored in HealthPresenter.cs
     private void UpdateUI()
     {
         healthBarImage.fillAmount = currentHealth / fullHealth;
     }
+    */
 }
