@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Subscribes to LevelUpSubject
 public class HealthSubscriber : MonoBehaviour
@@ -8,6 +9,7 @@ public class HealthSubscriber : MonoBehaviour
     [SerializeField] float fullHealth = 100.0f;
     [SerializeField] float drainPerSecond = 2.0f;
     [SerializeField] private LevelUpSubject levelUpSubject;
+    [SerializeField] private Image healthBarImage;
     float currentHealth = 0;
 
     private void Awake() {
@@ -40,13 +42,20 @@ public class HealthSubscriber : MonoBehaviour
     
     private void ResetHealth(){
         currentHealth = fullHealth;
+        UpdateUI();
     }
 
     IEnumerator HealthDrain(){
         while(currentHealth > 0){
             currentHealth -= drainPerSecond;
+            UpdateUI();
             yield return new WaitForSeconds(1);
         }
         yield return null;
+    }
+
+    private void UpdateUI()
+    {
+        healthBarImage.fillAmount = currentHealth / fullHealth;
     }
 }

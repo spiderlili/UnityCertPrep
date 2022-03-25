@@ -2,10 +2,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using UnityEngine.UI;
+using TMPro;
 
 public class LevelUpSubject : MonoBehaviour
 {
     [SerializeField] private int pointsPerLevel = 200;
+    [SerializeField] private TMP_Text displayText;
+    [SerializeField] private TMP_Text experienceText;
+    [SerializeField] private Button increaseXPButton;
     private int experiencePoints = 0;
     [SerializeField] private UnityEvent onLevelUp; // Can be safely removed if using Action or Event instead
     
@@ -14,7 +19,16 @@ public class LevelUpSubject : MonoBehaviour
 
     delegate void CallbackType();
 
-    IEnumerator Start(){
+    void UpdateUI()
+    {
+        displayText.text = $"Level: {GetLevel()}";
+        experienceText.text = $"Experience: {GetExperience()}";
+    }
+    
+    IEnumerator Start()
+    {
+        UpdateUI();
+        increaseXPButton.onClick.AddListener(() => GainExperience(10));
         while(true){
             yield return new WaitForSeconds(0.2f);
             GainExperience(10);
@@ -24,6 +38,8 @@ public class LevelUpSubject : MonoBehaviour
     public void GainExperience(int points){
         int level = GetLevel();
         experiencePoints += points;
+        UpdateUI();
+        
         if(GetLevel() > level){
             if (ONLevelUpAction != null) {
                 ONLevelUpAction();
