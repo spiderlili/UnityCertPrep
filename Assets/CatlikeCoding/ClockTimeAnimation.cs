@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
+// TODO: Add animation curve to the second hand - overshoot a little with no anticipation
 
 public class ClockTimeAnimation : MonoBehaviour
 {
