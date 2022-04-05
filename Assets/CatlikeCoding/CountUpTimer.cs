@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
-// TODO: Add flashing effect once time is up
+// TODO: Add Hour Separate Object
 public class CountUpTimer : MonoBehaviour{
     // TODO: Delete
     [SerializeField] private TMP_Text m_ClockText;
@@ -21,12 +20,21 @@ public class CountUpTimer : MonoBehaviour{
     [SerializeField] private TextMeshProUGUI secondMinute; // Second slot for minutes
     [SerializeField] private TextMeshProUGUI firstSecond; // First slot for seconds
     [SerializeField] private TextMeshProUGUI secondSecond; // Second slot for seconds
-    [SerializeField] private TextMeshProUGUI timerSeparator; // First slot for seconds
+    [SerializeField] private GameObject timerSeparator; // First slot for seconds
+
+    private float flashTimer;
+    [SerializeField] private bool countDown = false;
+    [SerializeField] private float flashDuration = 3f;
 
     // Set current time to the time duration, subtract the time that has elapsed from the timer
     private void ResetTimer()
     {
-        timer = timeDurationSeconds;
+        if (countDown) {
+            timer = timeDurationSeconds;
+        } else {
+            timer = 0;
+        }
+        SetTextDisplay(true); // Failsafe
         
         // TODO: Delete
         m_Hour = 0;
@@ -34,9 +42,30 @@ public class CountUpTimer : MonoBehaviour{
         m_Second = 0;
     }
     
-    private void Flash()
+    private void FlashTimer()
     {
+        // Prevent bug of the timer from being dropped to below 0
+        if (countDown && timer != 0) {
+            timer = 0;
+            UpdateTimerDisplay(timer);
+        }
         
+        if (!countDown && timer != timeDurationSeconds) {
+            timer = timeDurationSeconds;
+            UpdateTimerDisplay(timer);
+        }
+
+        // Flash Timer on 0 (if count down) or end of duration (if count up)
+        if (flashTimer <= 0) {
+            flashTimer = flashDuration;
+        }
+        else if (flashTimer >= flashDuration / 2) {
+            flashTimer -= Time.deltaTime;
+            SetTextDisplay(false);
+        } else {
+            flashTimer -= Time.deltaTime;
+            SetTextDisplay(true);
+        }
     }
 
     private void UpdateTimerDisplay(float timeInSeconds)
@@ -52,12 +81,25 @@ public class CountUpTimer : MonoBehaviour{
     }
     private void UpdateTimerWithFlashOnEnd()
     {
-        if (timer > 0) {
+        if (countDown && timer > 0) {
             timer -= Time.deltaTime;
             UpdateTimerDisplay(timer);
-        } else {
-            Flash();
+        } else if (!countDown && timer < timeDurationSeconds) {
+            timer += Time.deltaTime;
+            UpdateTimerDisplay(timer);
         }
+        else {
+            FlashTimer();
+        }
+    }
+
+    private void SetTextDisplay(bool textEnabled)
+    {
+        firstMinute.enabled = textEnabled;
+        secondMinute.enabled = textEnabled;
+        firstSecond.enabled = textEnabled;
+        secondSecond.enabled = textEnabled;
+        timerSeparator.SetActive(textEnabled);
     }
     
     private void SetTimerTextOneString()
