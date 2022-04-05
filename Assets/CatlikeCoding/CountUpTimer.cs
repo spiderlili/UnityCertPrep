@@ -75,7 +75,7 @@ public class CountUpTimer : MonoBehaviour{
         float hours = Mathf.FloorToInt(timeInSeconds / 3600);
         float minutes = Mathf.FloorToInt(timeInSeconds / 60); // Round value down so when you're at 0 you get 0
         float seconds = Mathf.FloorToInt(timeInSeconds % 60);
-        string currentTime = string.Format("{00:00}:{1:00}", minutes, seconds);
+        string currentTime = string.Format("{00:00}{1:00}", minutes, seconds);
         // firstHour.text = currentTime[0].ToString();
         // secondHour.text = currentTime[1].ToString();
         firstMinute.text = currentTime[0].ToString();
