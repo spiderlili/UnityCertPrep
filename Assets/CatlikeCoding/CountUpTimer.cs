@@ -16,6 +16,8 @@ public class CountUpTimer : MonoBehaviour{
     private float timer;
      
     // Separate timer objects
+    [SerializeField] private TextMeshProUGUI firstHour; // First slot for hours
+    [SerializeField] private TextMeshProUGUI secondHour; // Second slot for hours
     [SerializeField] private TextMeshProUGUI firstMinute; // First slot for minutes
     [SerializeField] private TextMeshProUGUI secondMinute; // Second slot for minutes
     [SerializeField] private TextMeshProUGUI firstSecond; // First slot for seconds
@@ -70,9 +72,12 @@ public class CountUpTimer : MonoBehaviour{
 
     private void UpdateTimerDisplay(float timeInSeconds)
     {
+        float hours = Mathf.FloorToInt(timeInSeconds / 3600);
         float minutes = Mathf.FloorToInt(timeInSeconds / 60); // Round value down so when you're at 0 you get 0
         float seconds = Mathf.FloorToInt(timeInSeconds % 60);
-        string currentTime = string.Format("{00:00}{1:00}", minutes, seconds);
+        string currentTime = string.Format("{00:00}:{1:00}", minutes, seconds);
+        // firstHour.text = currentTime[0].ToString();
+        // secondHour.text = currentTime[1].ToString();
         firstMinute.text = currentTime[0].ToString();
         secondMinute.text = currentTime[1].ToString();
         firstSecond.text = currentTime[2].ToString();
@@ -95,6 +100,8 @@ public class CountUpTimer : MonoBehaviour{
 
     private void SetTextDisplay(bool textEnabled)
     {
+        firstHour.enabled = textEnabled;
+        secondHour.enabled = textEnabled;
         firstMinute.enabled = textEnabled;
         secondMinute.enabled = textEnabled;
         firstSecond.enabled = textEnabled;

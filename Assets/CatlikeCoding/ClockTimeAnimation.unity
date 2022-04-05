@@ -1457,6 +1457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ClockText: {fileID: 797987391}
   timeDurationMinutes: 0.05
+  firstHour: {fileID: 81093603}
+  secondHour: {fileID: 553943233}
   firstMinute: {fileID: 308028915}
   secondMinute: {fileID: 222451046}
   firstSecond: {fileID: 2117684808}
