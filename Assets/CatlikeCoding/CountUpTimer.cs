@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using TMPro;
 
 // TODO: Add Hour Separate Object
@@ -52,7 +53,8 @@ public class CountUpTimer : MonoBehaviour{
             UpdateTimerDisplay(timer);
         }
         
-        if (!countDown && timer != timeDurationSeconds) {
+        // Prevent bug caused by floating point comparison inaccuracy
+        if (!countDown && Math.Abs(timer - timeDurationSeconds) > 0.01f) {
             timer = timeDurationSeconds;
             UpdateTimerDisplay(timer);
         }
