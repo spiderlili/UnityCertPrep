@@ -2,7 +2,6 @@
 using UnityEngine;
 using TMPro;
 
-// TODO: Add Hour Separate Object
 public class CountUpTimer : MonoBehaviour{
     // TODO: Delete
     [SerializeField] private TMP_Text m_ClockText;
@@ -110,6 +109,7 @@ public class CountUpTimer : MonoBehaviour{
         timerSeparator.SetActive(textEnabled);
     }
     
+    // TODO: Delete
     private void SetTimerTextOneString()
     {
         m_Timer += Time.deltaTime;
