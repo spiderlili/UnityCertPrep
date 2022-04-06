@@ -77,14 +77,13 @@ public class CountUpTimer : MonoBehaviour{
         float hours = Mathf.FloorToInt(timeInSeconds / 3600);
         float minutes = Mathf.FloorToInt(timeInSeconds / 60); // Round value down so when you're at 0 you get 0
         float seconds = Mathf.FloorToInt(timeInSeconds % 60);
-        string currentTime = string.Format("{00:00}{1:00}", minutes, seconds);
-        // firstHour.text = currentTime[0].ToString();
-        // secondHour.text = currentTime[1].ToString();
-        firstMinute.text = currentTime[0].ToString();
-        secondMinute.text = currentTime[1].ToString();
-        firstSecond.text = currentTime[2].ToString();
-        secondSecond.text = currentTime[3].ToString();
-
+        string currentTime = $"{hours:00}{minutes:00}{seconds:00}";
+        firstHour.text = currentTime[0].ToString();
+        secondHour.text = currentTime[1].ToString();
+        firstMinute.text = currentTime[2].ToString();
+        secondMinute.text = currentTime[3].ToString();
+        firstSecond.text = currentTime[4].ToString();
+        secondSecond.text = currentTime[5].ToString();
     }
     private void UpdateTimerWithFlashOnEnd()
     {
@@ -129,7 +128,7 @@ public class CountUpTimer : MonoBehaviour{
         {
             m_Timer = 0;
         }
-        m_ClockText.text = string.Format("{0:d2}:{1:d2}:{2:d2}", m_Hour,m_Minute,m_Second); 
+        m_ClockText.text = $"{m_Hour:d2}:{m_Minute:d2}:{m_Second:d2}"; 
     }
     
     private void Awake()
