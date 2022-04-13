@@ -23,6 +23,7 @@ public class FootballScoreCalculator : MonoBehaviour
     // TODO: ResetScores when CountUpTimer is reset
     private void ResetScores()
     {
+        runScoreCheck = true;
         team1ScoreText.text = "0" + team1StartScore;
         team2ScoreText.text = "0" + team2StartScore;
     }
