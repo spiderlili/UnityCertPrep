@@ -112,8 +112,10 @@ public class CountUpTimer : MonoBehaviour{
             UpdateTimerDisplay(timer);
         }
         else {
+            // TODO: Communicate to FootballScoreCalculator to stop calculating scores
             FlashTimer();
             if (restartTimerAfterFlash) {
+                // TODO: Communicate to FootballScoreCalculator to reset scores
                 StartCoroutine(FlashCountdownToResetTimer());
             }
         }
