@@ -50,6 +50,7 @@ public class FootballScoreCalculator : MonoBehaviour
             Debug.Log("Draw");
             Debug.Log("Randomly Generated Chance: " +  chance);
             Debug.Log("Probability To Score: " + probabilityToScore);
+            return;
         }
         else if(chance > probabilityToDraw && chance < 101 - probabilityToScore) {
             team1Score++;
