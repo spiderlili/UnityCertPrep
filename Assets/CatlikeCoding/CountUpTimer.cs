@@ -18,7 +18,9 @@ public class CountUpTimer : MonoBehaviour{
     [SerializeField] private float timeDurationMinutes = 3f;
     private float timeDurationSeconds;
     private float timer;
-     
+    public event Action OnTimeUp;
+    public event Action OnReset;
+    
     // Separate timer objects
     [SerializeField] private TextMeshProUGUI firstHour; // First slot for hours
     [SerializeField] private TextMeshProUGUI secondHour; // Second slot for hours
@@ -113,9 +115,15 @@ public class CountUpTimer : MonoBehaviour{
         }
         else {
             // TODO: Communicate to FootballScoreCalculator to stop calculating scores
+            if (OnTimeUp != null) {
+                OnTimeUp();
+            }
             FlashTimer();
             if (restartTimerAfterFlash) {
                 // TODO: Communicate to FootballScoreCalculator to reset scores
+                if (OnReset != null) {
+                    OnReset();
+                }
                 StartCoroutine(FlashCountdownToResetTimer());
             }
         }

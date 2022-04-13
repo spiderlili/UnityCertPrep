@@ -13,24 +13,32 @@ public class FootballScoreCalculator : MonoBehaviour
     [SerializeField] private int probabilityToDraw = 33;
     private bool runScoreCheck = true;
     [SerializeField] private float runScoreCheckDurationMinutes = 20f;
+    [SerializeField] private CountUpTimer countUpTimer;
 
+    // TODO: Set runScoreCheck to false when CountUpTimer is up, ResetScores when CountUpTimer is reset
     void Start()
     {
         ResetScores();
         StartCoroutine(RunScoreCheck());
+        countUpTimer.OnTimeUp += HaltScoreCheck;
+        countUpTimer.OnReset += ResetScores;
     }
-
-    // TODO: ResetScores when CountUpTimer is reset
+    
     private void ResetScores()
     {
         runScoreCheck = true;
         team1ScoreText.text = "0" + team1StartScore;
         team2ScoreText.text = "0" + team2StartScore;
     }
+
+    private void HaltScoreCheck()
+    {
+        runScoreCheck = false;
+    }
     
     IEnumerator RunScoreCheck()
     {
-        while(runScoreCheck) // TODO: Set runScoreCheck to false when CountUpTimer is up
+        while(runScoreCheck) 
         { 
             DetermineScoreByChance();
             yield return new WaitForSeconds(runScoreCheckDurationMinutes * 60f);

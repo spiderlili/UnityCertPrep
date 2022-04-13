@@ -1089,7 +1089,8 @@ MonoBehaviour:
   team1ScoreText: {fileID: 1275373149}
   team2ScoreText: {fileID: 116008876}
   probabilityToDraw: 33
-  runScoreCheckDurationMinutes: 20
+  runScoreCheckDurationMinutes: 0.1
+  countUpTimer: {fileID: 740712190}
 --- !u!1 &444116334
 GameObject:
   m_ObjectHideFlags: 0
