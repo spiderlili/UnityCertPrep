@@ -10,6 +10,7 @@ public class FootballScoreCalculator : MonoBehaviour
     [SerializeField] private int team2StartScore = 0;
     [SerializeField] private TMP_Text team1ScoreText;
     [SerializeField] private TMP_Text team2ScoreText;
+    [Range(1,100)]
     [SerializeField] private int probabilityToDraw = 33;
     private bool runScoreCheck = true;
     [SerializeField] private float runScoreCheckDurationMinutes = 20f;
