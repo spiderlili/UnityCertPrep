@@ -6,9 +6,6 @@ using System.Collections;
 
 public class FootballScoreCalculator : MonoBehaviour
 {
-    // TODO: With every 10 minute, calculate the chance to score - 1 team will have a chance to increase score + 1 with the probability of 30%
-    // Start is called before the first frame update
-
     [SerializeField] private int team1StartScore = 1;
     [SerializeField] private int team2StartScore = 0;
     [SerializeField] private TMP_Text team1ScoreText;
@@ -23,6 +20,7 @@ public class FootballScoreCalculator : MonoBehaviour
         StartCoroutine(RunScoreCheck());
     }
 
+    // TODO: ResetScores when CountUpTimer is reset
     private void ResetScores()
     {
         team1ScoreText.text = "0" + team1StartScore;
