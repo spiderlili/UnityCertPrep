@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -26,10 +27,12 @@ public class CountUpTimer : MonoBehaviour{
     [SerializeField] private TextMeshProUGUI firstSecond; // First slot for seconds
     [SerializeField] private TextMeshProUGUI secondSecond; // Second slot for seconds
     [SerializeField] private GameObject timerSeparator; // First slot for seconds
-
     private float flashTimer;
     [SerializeField] private bool countDown = false;
+    [Header("Flash On Timer End")]
     [SerializeField] private float flashDuration = 3f;
+    [SerializeField] private bool restartTimerAfterFlash = false;
+    [SerializeField] private float flashTimeToRestartTimer = 10f;
 
     // Set current time to the time duration, subtract the time that has elapsed from the timer
     private void ResetTimer()
@@ -87,6 +90,18 @@ public class CountUpTimer : MonoBehaviour{
         firstSecond.text = currentTime[4].ToString();
         secondSecond.text = currentTime[5].ToString();
     }
+    
+    private IEnumerator FlashCountdownToResetTimer()
+    {
+        float normalizedTime = 0;
+        while(normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / flashTimeToRestartTimer;
+            yield return null;
+        }
+        ResetTimer();
+    }
+    
     private void UpdateTimerWithFlashOnEnd()
     {
         if (countDown && timer > 0) {
@@ -98,6 +113,9 @@ public class CountUpTimer : MonoBehaviour{
         }
         else {
             FlashTimer();
+            if (restartTimerAfterFlash) {
+                StartCoroutine(FlashCountdownToResetTimer());
+            }
         }
     }
 
