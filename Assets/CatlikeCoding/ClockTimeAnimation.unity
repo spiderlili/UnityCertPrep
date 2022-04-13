@@ -1827,7 +1827,7 @@ MonoBehaviour:
   secondSecond: {fileID: 1274955365}
   timerSeparator: {fileID: 1568723404}
   countDown: 0
-  flashDuration: 3
+  flashDuration: 1
 --- !u!1 &797987389
 GameObject:
   m_ObjectHideFlags: 0
