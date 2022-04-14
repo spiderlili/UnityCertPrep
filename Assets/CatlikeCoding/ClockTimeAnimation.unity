@@ -384,8 +384,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   team1ScoreText: {fileID: 1275373149}
   team2ScoreText: {fileID: 116008876}
   probabilityToDraw: 33
-  runScoreCheckDurationMinutes: 1
+  runScoreCheckDurationMinutes: 30
   countUpTimer: {fileID: 740712190}
 --- !u!1 &444116334
 GameObject:
@@ -1354,6 +1354,7 @@ GameObject:
   - component: {fileID: 532733953}
   - component: {fileID: 532733952}
   - component: {fileID: 532733951}
+  - component: {fileID: 532733954}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1426,6 +1427,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532733954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532733950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb4d9bd051a71f48a18edd27bce7c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 1.126
+  intensity: 0.8
+  blurSize: 0.39
+  blurIterations: 2
+  fastBloomMaterial: {fileID: 2100000, guid: 221340b8b5ad10940ba1646f87e3770c, type: 2}
 --- !u!1 &553943231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,7 +1839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ClockText: {fileID: 797987391}
-  timeDurationMinutes: 0.07
+  timeDurationMinutes: 0.1
   firstHour: {fileID: 81093603}
   secondHour: {fileID: 553943233}
   firstMinute: {fileID: 308028915}
@@ -1831,7 +1849,7 @@ MonoBehaviour:
   timerSeparator: {fileID: 1568723404}
   countDown: 0
   flashDuration: 1
-  restartTimerAfterFlash: 1
+  restartTimerAfterFlash: 0
   flashTimeToRestartTimer: 3
 --- !u!1 &797987389
 GameObject:
@@ -2167,7 +2185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1158460748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2215,8 +2233,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2527,8 +2545,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3386,8 +3404,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1493172479
-  m_fontColor: {r: 1, g: 0, b: 0, a: 0.34901962}
+    rgba: 1073742079
+  m_fontColor: {r: 1, g: 0, b: 0, a: 0.2509804}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4159,7 +4177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: 00 00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73f2172d7d5814ccb9fedca94ded6d35, type: 2}
   m_sharedMaterial: {fileID: -2420899801736094368, guid: 73f2172d7d5814ccb9fedca94ded6d35,
@@ -4169,8 +4187,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1509949439
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.34901962}
+    rgba: 855638271
+  m_fontColor: {r: 1, g: 0, b: 0, a: 0.2}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4231,7 +4249,7 @@ MonoBehaviour:
     textComponent: {fileID: 2109725387}
     characterCount: 5
     spriteCount: 0
-    spaceCount: 0
+    spaceCount: 1
     wordCount: 2
     linkCount: 0
     lineCount: 1
