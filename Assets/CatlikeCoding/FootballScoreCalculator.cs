@@ -14,15 +14,15 @@ public class FootballScoreCalculator : MonoBehaviour
     [SerializeField] private int probabilityToDraw = 33;
     private bool runScoreCheck = true;
     [SerializeField] private float runScoreCheckDurationMinutes = 20f;
-    [SerializeField] private CountUpTimer countUpTimer;
+    [SerializeField] private DigitalTimer digitalTimer;
 
     // TODO: Set runScoreCheck to false when CountUpTimer is up, ResetScores when CountUpTimer is reset
     void Start()
     {
         ResetScores();
         StartCoroutine(RunScoreCheck());
-        countUpTimer.OnTimeUp += HaltScoreCheck;
-        countUpTimer.OnReset += ResetScores;
+        digitalTimer.OnTimeUp += HaltScoreCheck;
+        digitalTimer.OnReset += ResetScores;
     }
     
     private void ResetScores()

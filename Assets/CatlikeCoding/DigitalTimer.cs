@@ -6,7 +6,7 @@ using TMPro;
 // TODO: consider updating this in a Coroutine instead of in Update, running every 1/10th of a second or so
 // https://forum.unity.com/threads/how-best-to-make-a-timer-utilizing-stringbuilder.530414/
 
-public class CountUpTimer : MonoBehaviour{
+public class DigitalTimer : MonoBehaviour{
     // TODO: Delete
     [SerializeField] private TMP_Text m_ClockText;
     private float m_Timer;
