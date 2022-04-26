@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshGroup: {fileID: 1753639845}
+  meshCombinedMaterial: {fileID: 0}
 --- !u!23 &564346606
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -371,7 +372,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: fc6f3c1cca5d940049ad2c3a1556ec0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

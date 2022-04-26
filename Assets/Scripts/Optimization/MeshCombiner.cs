@@ -4,6 +4,7 @@
 public class MeshCombiner : MonoBehaviour
 {
     [SerializeField] private GameObject meshGroup;
+    [SerializeField] private Material meshCombinedMaterial;
     private void Start()
     {
         CombineAllMeshes();
@@ -24,6 +25,10 @@ public class MeshCombiner : MonoBehaviour
             finalMesh.CombineMeshes(combineInstances);
 
             GetComponent<MeshFilter>().sharedMesh = finalMesh;
+        }
+
+        if (meshCombinedMaterial != null) {
+            GetComponent<MeshRenderer>().sharedMaterial = meshCombinedMaterial;
         }
     }
 
