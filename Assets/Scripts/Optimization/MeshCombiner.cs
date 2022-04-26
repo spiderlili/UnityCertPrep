@@ -4,7 +4,7 @@
 // TODO: Make material
 public class MeshCombiner : MonoBehaviour
 {
-    [SerializeField]private GameObject meshGroup;
+    [SerializeField] private GameObject meshGroup;
     private void Start()
     {
         CombineAllMeshes();
