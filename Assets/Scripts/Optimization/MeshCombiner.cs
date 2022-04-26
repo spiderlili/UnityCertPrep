@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
-// TODO: Make editor window to save mesh: run CombineAllMeshes & save to disk
-// https://github.com/pharan/Unity-MeshSaver/blob/master/MeshSaver/Editor/MeshSaverEditor.cs
+
+// To save the generated mesh: Right click on Mesh Filter > Save Mesh
 
 public class MeshCombiner : MonoBehaviour
 {
     [SerializeField] private GameObject meshGroup;
     [SerializeField] private Material meshCombinedMaterial;
+
     private void Start()
     {
         CombineAllMeshes();
