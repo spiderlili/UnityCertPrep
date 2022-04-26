@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
 // TODO: Make editor window to save mesh: run CombineAllMeshes & save to disk
-// TODO: Make material
 public class MeshCombiner : MonoBehaviour
 {
     [SerializeField] private GameObject meshGroup;
@@ -26,5 +25,11 @@ public class MeshCombiner : MonoBehaviour
 
             GetComponent<MeshFilter>().sharedMesh = finalMesh;
         }
+    }
+
+    // TODO: Make material and assign to this object's mesh
+    void CreateMaterial()
+    {
+        
     }
 }
