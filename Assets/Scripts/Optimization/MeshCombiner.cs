@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
 // TODO: Make editor window to save mesh: run CombineAllMeshes & save to disk
+// https://github.com/pharan/Unity-MeshSaver/blob/master/MeshSaver/Editor/MeshSaverEditor.cs
+
 public class MeshCombiner : MonoBehaviour
 {
     [SerializeField] private GameObject meshGroup;
