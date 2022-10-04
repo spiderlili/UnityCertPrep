@@ -31,20 +31,15 @@ public class PiggyBankEvent : MonoBehaviour
         BalanceWatcher balanceWatcher = new BalanceWatcher();
         balanceChanged += balanceLogger.balanceLog;
         balanceChanged += balanceWatcher.balanceWatch;
-        depositPromptText.text = "How much to deposit? Your savings goal is " + savingsGoal;
+        depositPromptText.text = "How much to deposit? Savings goal: " + savingsGoal;
     }
 
     public void MainCheckOnSubmit()
     {
-        string userInputValue;
-        do {
-            depositPromptText.text = "How much to deposit? Your saved " + theBalance;
-            userInputValue = userInputText.text;
-            if (!userInputValue.Equals("exit")) {
-                float newVal = float.Parse(userInputValue);
-                theBalance += newVal;
-            }
-        } while (!userInputValue.Equals("exit"));
+        string userInputValue= userInputText.text;
+        float newVal = float.Parse(userInputValue);
+        theBalance += newVal;
+        depositPromptText.text = "How much to deposit? Your saved " + theBalance;
     }
 
     /*
@@ -62,7 +57,7 @@ class BalanceLogger
 {
     public void balanceLog(float amount)
     {
-        Debug.Log("The balance amaount is " + amount);
+        Debug.Log("The balance amount is " + amount);
     }
 }
 
