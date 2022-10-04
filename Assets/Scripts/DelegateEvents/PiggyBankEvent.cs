@@ -23,12 +23,12 @@ public class PiggyBankEvent : MonoBehaviour
         }
     }
     
-    BalanceLogger balanceLogger = new BalanceLogger();
-    BalanceWatcher balanceWatcher = new BalanceWatcher();
     
     // Start is called before the first frame update
     void Start()
     {
+        BalanceLogger balanceLogger = new BalanceLogger();
+        BalanceWatcher balanceWatcher = new BalanceWatcher();
         balanceChanged += balanceLogger.balanceLog;
         balanceChanged += balanceWatcher.balanceWatch;
         depositPromptText.text = "How much to deposit? Your savings goal is " + savingsGoal;
@@ -47,11 +47,13 @@ public class PiggyBankEvent : MonoBehaviour
         } while (!userInputValue.Equals("exit"));
     }
 
+    /*
     private void OnDestroy()
     {
         balanceChanged -= balanceLogger.balanceLog;
         balanceChanged -= balanceWatcher.balanceWatch;
     }
+    */
 
 }
 
