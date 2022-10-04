@@ -22,20 +22,23 @@ public class PiggyBankEvent : MonoBehaviour
             return bankBalance;
         }
     }
+    
+    BalanceLogger balanceLogger = new BalanceLogger();
+    BalanceWatcher balanceWatcher = new BalanceWatcher();
+    
     // Start is called before the first frame update
     void Start()
     {
-        BalanceLogger balanceLogger = new BalanceLogger();
-        BalanceWatcher balanceWatcher = new BalanceWatcher();
         balanceChanged += balanceLogger.balanceLog;
         balanceChanged += balanceWatcher.balanceWatch;
+        depositPromptText.text = "How much to deposit? Your savings goal is " + savingsGoal;
     }
 
     public void MainCheckOnSubmit()
     {
         string userInputValue;
         do {
-            depositPromptText.text = "How much to deposit? Your savings goal is " + savingsGoal;
+            depositPromptText.text = "How much to deposit? Your saved " + theBalance;
             userInputValue = userInputText.text;
             if (!userInputValue.Equals("exit")) {
                 float newVal = float.Parse(userInputValue);
@@ -46,8 +49,6 @@ public class PiggyBankEvent : MonoBehaviour
 
     private void OnDestroy()
     {
-        BalanceLogger balanceLogger = new BalanceLogger();
-        BalanceWatcher balanceWatcher = new BalanceWatcher();
         balanceChanged -= balanceLogger.balanceLog;
         balanceChanged -= balanceWatcher.balanceWatch;
     }
