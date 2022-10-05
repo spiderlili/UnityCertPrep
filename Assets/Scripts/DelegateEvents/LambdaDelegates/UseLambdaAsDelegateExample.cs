@@ -19,11 +19,16 @@ public class UseLambdaAsDelegateExample : MonoBehaviour
     void Start()
     {
         PromptText.text = "Type in something: ";
+    }
+    
+    public void MainCheckOnSubmit()
+    {
+        string userInputValue = userInputText.text;
         // Use a lambda expression to define an event handler. Note this is a statement lambda due to the use of {}
         valueChanged += (x) => {
             Debug.Log("The value changed to " + x);
         };
-
+        
         Val = userInputText.ToString();
     }
 }
