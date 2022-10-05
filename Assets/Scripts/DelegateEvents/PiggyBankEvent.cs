@@ -23,12 +23,12 @@ public class PiggyBankEvent : MonoBehaviour
         }
     }
     
+    BalanceLogger balanceLogger = new BalanceLogger();
+    BalanceWatcher balanceWatcher = new BalanceWatcher();
     
     // Start is called before the first frame update
     void Start()
     {
-        BalanceLogger balanceLogger = new BalanceLogger();
-        BalanceWatcher balanceWatcher = new BalanceWatcher();
         balanceChanged += balanceLogger.balanceLog;
         balanceChanged += balanceWatcher.balanceWatch;
         depositPromptText.text = "How much to deposit? Savings goal: " + savingsGoal;
@@ -42,14 +42,11 @@ public class PiggyBankEvent : MonoBehaviour
         depositPromptText.text = "How much to deposit? Your saved " + theBalance;
     }
 
-    /*
     private void OnDestroy()
     {
         balanceChanged -= balanceLogger.balanceLog;
         balanceChanged -= balanceWatcher.balanceWatch;
     }
-    */
-
 }
 
 // functions MUST match the signature of the event handler delegate at the top!
