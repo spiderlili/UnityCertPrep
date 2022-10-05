@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class UseLambdaAsDelegateExample : MonoBehaviour
 {
-    public delegate void myEventHandler(string value); // Define a delegate
+    public delegate void myEventHandler(Text value); // Define a delegate
     public Text PromptText;
     public Text userInputText;
-    private string theVal;
+    private Text theVal;
     public event myEventHandler valueChanged;
-    public string Val
+    public Text Val
     {
         set {
             this.theVal = value;
@@ -26,9 +26,9 @@ public class UseLambdaAsDelegateExample : MonoBehaviour
         string userInputValue = userInputText.text;
         // Use a lambda expression to define an event handler. Note this is a statement lambda due to the use of {}
         valueChanged += (x) => {
-            Debug.Log("The value changed to " + x);
+            Debug.Log("The value changed to " + x.text);
         };
         
-        Val = userInputText.ToString();
+        Val = userInputText;
     }
 }
