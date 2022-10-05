@@ -898,9 +898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cba76d98e4646c196dced756323ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depositPromptText: {fileID: 0}
+  depositPromptText: {fileID: 2120736535}
   savingsGoal: 500
-  userInputText: {fileID: 0}
+  userInputText: {fileID: 1530034798}
 --- !u!4 &2010777379
 Transform:
   m_ObjectHideFlags: 0

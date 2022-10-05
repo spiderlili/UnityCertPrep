@@ -29,20 +29,20 @@ public class PiggyBankLambda : MonoBehaviour
 
     public void MainCheckOnSubmit()
     {
-        string userInputValue= userInputText.text;
-        float newVal = float.Parse(userInputValue);
-
-        balanceChanged += (y) => {
+        // Use a lambda expression to define an event handler. Note this is a statement lambda due to the use of {}
+        balanceChanged += (amount) => {
             if (theBalance > 500.0f) {
-                Debug.Log("Savings goal reached! you have " + y + " saved up.");
+                depositPromptText.text = "Savings goal reached! you have " + amount + " saved up.";
+                Debug.Log("Savings goal reached! you have " + amount + " saved up.");
+            } else {
+                depositPromptText.text = "How much to deposit? Your saved " + amount;
+                Debug.Log("How much to deposit? Your saved " + amount);
             }
         };
         
-        // Use a lambda expression to define an event handler. Note this is a statement lambda due to the use of {}
-        balanceChanged += (x) => {
-            theBalance += x;
-            Debug.Log("How much to deposit? Your saved " + theBalance);
-        };
+        string userInputValue = userInputText.text;
+        float newVal = float.Parse(userInputValue);
+        theBalance += newVal;
     }
 }
 
